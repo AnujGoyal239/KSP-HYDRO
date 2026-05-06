@@ -1,0 +1,11 @@
+export { default as HeroSection } from './HeroSection';
+export { default as WhoWeAreSection } from './WhoWeAreSection';
+export { default as JourneySection } from './JourneySection';
+export { default as QuoteSection } from './QuoteSection';
+export { default as CultureValuesSection } from './CultureValuesSection';
+export { default as QualityComplianceSection } from './QualityComplianceSection';
+export { default as ClientsSection } from './ClientsSection';
+export { default as PartnersSection } from './PartnersSection';
+export { default as CTASection } from './CTASection';
+export { default as TestimonialsSection } from './TestimonialsSection';
+export { default as OurOfficeSection } from './OurOfficeSection';

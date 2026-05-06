@@ -1,0 +1,9 @@
+export { default as HeroSection } from './HeroSection';
+export { default as HowWeWorkSection } from './HowWeWorkSection';
+export { default as DesignEngineeringSection } from './DesignEngineeringSection';
+export { default as ErectionCommissioningSection } from './ErectionCommissioningSection';
+export { default as OperationMaintenanceSection } from './OperationMaintenanceSection';
+export { default as SparesConsumablesSection } from './SparesConsumablesSection';
+export { default as ServiceProcessSection } from './ServiceProcessSection';
+export { default as WhyChooseUsSection } from './WhyChooseUsSection';
+export { default as ServicesCTASection } from './ServicesCTASection';

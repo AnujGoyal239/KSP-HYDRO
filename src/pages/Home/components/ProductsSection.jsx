@@ -1,0 +1,225 @@
+import { Droplet, Filter, Recycle, Factory, Settings } from 'lucide-react';
+import ProductsData from '@/data/ProductsData';
+import { useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import gsap from 'gsap';
+import { useGSAP } from '@gsap/react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const ProductsSection = () => {
+  const containerRef = useRef(null);
+  const navigate = useNavigate();
+  const iconMap = {
+    'water-drop': Droplet,
+    filter: Filter,
+    recycle: Recycle,
+    factory: Factory,
+    settings: Settings,
+  };
+
+  useGSAP(() => {
+    const mm = gsap.matchMedia();
+    const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    // 1. ENTRY ANIMATION (ScrollTrigger)
+    mm.add(
+      {
+        isDesktop: "(min-width: 768px)",
+        isMobile: "(max-width: 767px)",
+        reduceMotion: "(prefers-reduced-motion: reduce)"
+      },
+      (context) => {
+        const { isDesktop, reduceMotion } = context.conditions;
+
+        // Skip animations if reduced motion is preferred
+        if (reduceMotion) return;
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: "top 85%",
+            toggleActions: "play reverse play reverse"
+          }
+        });
+
+        // Header Fade In
+        tl.fromTo('.products-header',
+          { y: 20, opacity: 0 },
+          { y: 0, opacity: 1, duration: 0.8, ease: "power2.out" }
+        )
+          // Product Cards Staggered Entry
+          .fromTo('.product-card',
+            { y: isDesktop ? 30 : 15, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              stagger: 0.12,
+              ease: "power2.out"
+            },
+            "-=0.4"
+          );
+      }
+    );
+
+    // 2. HOVER ANIMATIONS (Desktop Only)
+    // Setup hover only if not reduced motion and is desktop
+    if (!prefersReducedMotion && isDesktop) {
+      const cards = gsap.utils.toArray('.product-card');
+
+      cards.forEach(card => {
+        const image = card.querySelector('.product-image');
+        const iconBadge = card.querySelector('.product-icon-badge');
+
+        const hoverTl = gsap.timeline({ paused: true });
+
+        // Card Lift + Shadow
+        hoverTl.to(card, {
+          y: -6,
+          boxShadow: "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)",
+          duration: 0.3,
+          ease: "power2.out"
+        }, 0)
+          // Image Scale
+          .to(image, {
+            scale: 1.04,
+            duration: 0.4,
+            ease: "power2.out"
+          }, 0)
+          // Icon Badge Lift
+          .to(iconBadge, {
+            y: -4,
+            scale: 1.06,
+            duration: 0.3,
+            ease: "power2.out"
+          }, 0);
+
+        card.addEventListener('mouseenter', () => hoverTl.play());
+        card.addEventListener('mouseleave', () => hoverTl.reverse());
+      });
+    }
+
+  }, { scope: containerRef });
+
+  return (
+    <section ref={containerRef} className="relative py-16 mt-28 products-section">
+      {/* Light Blue Wave Layer */}
+      <div className="absolute top-3 left-0 w-full h-[20px] -translate-y-6 md:-translate-y-8 z-0 pointer-events-none">
+        {/* Desktop SVG */}
+        <svg
+          className="w-full hidden md:block"
+          height="120"
+          preserveAspectRatio="none"
+          viewBox="0 0 1340 126"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M132.298 37.1257C73.4988 5.96105 0 62.227 0 62.227V126H1340V81.1656C1340 81.1656 1284.3 18.5629 1203.83 48.9745C1123.37 79.3861 1083.14 30.0166 1027.82 20.5376C972.506 11.0587 972.506 23.8282 884.307 48.9745C796.109 74.1207 762.841 4.53874e-05 671.934 0C581.028 -4.53873e-05 564.394 39.1006 490.121 48.9745C415.849 58.8483 379.486 20.5376 310.242 20.5376C249.204 20.5376 191.097 68.2904 132.298 37.1257Z"
+            fill="#D7F1F8"
+          />
+        </svg>
+
+        {/* Mobile SVG */}
+
+      </div>
+
+      {/* Main Blue Background */}
+      <div className="absolute inset-0 z-0 hidden pointer-events-none md:block">
+        <svg
+          className="w-full"
+          height="725"
+          preserveAspectRatio="none"
+          viewBox="0 0 1340 725"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M132.298 36.3467C73.4988 5.83596 0 47.9468 0 47.9468V721.907L1340 725V64.5734C1340 64.5734 1284.3 18.1733 1203.83 47.9468C1123.37 77.7202 1083.14 29.3867 1027.82 20.1067C972.506 10.8266 972.506 23.3282 884.307 47.9468C796.109 72.5654 762.841 4.44349e-05 671.934 0C581.028 -4.44348e-05 564.394 38.2801 490.121 47.9468C415.849 57.6134 379.486 20.1067 310.242 20.1067C249.204 20.1067 191.097 66.8574 132.298 36.3467Z"
+            fill="url(#paint0_linear_1_94)"
+          />
+          <defs>
+            <linearGradient
+              id="paint0_linear_1_94"
+              x1="904.809"
+              y1="116.387"
+              x2="910.993"
+              y2="752.454"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor="#1561F6" />
+              <stop offset="1" stopColor="white" stopOpacity="0" />
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div className="relative z-10 px-4 mx-auto max-w-7xl md:px-8">
+        {/* Section Header */}
+        <div className="mb-12 text-center md:mb-16 products-header opacity-0">
+          <p className="mb-3 text-sm font-semibold tracking-wide uppercase text-blue-500 md:text-white/90">
+            Our Solutions
+          </p>
+          <h2 className="mb-4 text-4xl font-bold text-black md:text-white md:text-4xl lg:text-5xl">
+            Our Products
+          </h2>
+          <p className="max-w-3xl mx-auto text-lg text-black md:text-lg md:text-white/90">
+            Comprehensive water treatment solutions engineered for reliability and
+            sustainability
+          </p>
+        </div>
+
+        {/* Products Grid */}
+        <div className="flex flex-wrap justify-center gap-6">
+          {ProductsData.map((product) => {
+            const Icon = iconMap[product.headerIcon?.type] || Droplet;
+            return (
+              <div
+                key={product.id}
+                onClick={() => navigate(`/products#${product.slug}`)}
+                className="product-card flex flex-col h-full overflow-hidden bg-white shadow-md rounded-lg w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] transition-none opacity-0 cursor-pointer"
+              >
+                {/* Image */}
+                <div
+                  className="relative w-full overflow-hidden bg-gray-200"
+                  style={{ height: '200px' }}
+                >
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    loading="lazy"
+                    width="400"
+                    height="200"
+                    className="product-image object-cover w-full h-full transition-none"
+                  />
+
+                  {/* Icon Badge */}
+                  <div className="absolute z-10 top-3 right-3 product-icon-badge">
+                    <div className="flex items-center justify-center w-10 h-10 rounded-lg shadow-sm bg-white/95 backdrop-blur-sm">
+                      <Icon className="product-icon w-5 h-5 text-blue-600" strokeWidth={2} />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="flex flex-col flex-1 p-5">
+                  <h3 className="mb-2 text-base font-bold leading-snug text-gray-900">
+                    {product.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-gray-600">
+                    {product.homeSubtitle}
+                  </p>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default ProductsSection;
