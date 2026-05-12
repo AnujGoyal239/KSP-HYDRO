@@ -283,19 +283,19 @@ const ProductSection = ({ product }) => {
         <div className="grid grid-cols-1 gap-6 mb-8 md:grid-cols-3">
           {/* Card 1 - What It Is */}
           <div
-            className="info-card p-6 border border-gray-100 shadow-md bg-white/80 backdrop-blur-md rounded-xl opacity-0 cursor-default"
+            className="info-card p-6 bg-white border border-gray-200 rounded-2xl shadow-lg opacity-0 cursor-default"
             onMouseEnter={handleCardHover}
             onMouseLeave={handleCardLeave}
           >
             <h3 className="text-lg font-semibold text-[#0A1628] mb-3">{sections.whatItIs.title}</h3>
-            <p className="text-sm leading-relaxed text-gray-500">
+            <p className="text-sm leading-relaxed text-gray-600">
               {sections.whatItIs.description}
             </p>
           </div>
 
           {/* Card 2 - Where It's Used */}
           <div
-            className="info-card p-6 border border-gray-100 shadow-md bg-white/80 backdrop-blur-md rounded-xl opacity-0 cursor-default"
+            className="info-card p-6 bg-white border border-gray-200 rounded-2xl shadow-lg opacity-0 cursor-default"
             onMouseEnter={handleCardHover}
             onMouseLeave={handleCardLeave}
           >
@@ -304,7 +304,7 @@ const ProductSection = ({ product }) => {
               {sections.whereItsUsed.items.map((item, index) => (
                 <li key={index} className="flex items-center gap-2">
                   <CheckCircle className="flex-shrink-0 w-4 h-4 text-green-500" />
-                  <span className="text-sm text-gray-500">{item}</span>
+                  <span className="text-sm text-gray-600">{item}</span>
                 </li>
               ))}
             </ul>
@@ -312,7 +312,7 @@ const ProductSection = ({ product }) => {
 
           {/* Card 3 - Advantages */}
           <div
-            className="info-card p-6 border border-gray-100 shadow-md bg-white/80 backdrop-blur-md rounded-xl opacity-0 cursor-default"
+            className="info-card p-6 bg-white border border-gray-200 rounded-2xl shadow-lg opacity-0 cursor-default"
             onMouseEnter={handleCardHover}
             onMouseLeave={handleCardLeave}
           >
@@ -321,62 +321,56 @@ const ProductSection = ({ product }) => {
               {sections.advantages.items.map((item, index) => (
                 <li key={index} className="flex items-center gap-2">
                   <CheckCircle className="w-4 h-4 text-[#155DFC] flex-shrink-0" />
-                  <span className="text-sm text-gray-500">{item}</span>
+                  <span className="text-sm text-gray-600">{item}</span>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        {/* Process Overview Section */}
-        <div className="process-section-container p-8 border border-gray-100 shadow-md bg-white/80 backdrop-blur-md rounded-xl opacity-0">
-          <h3 className="process-title text-xl font-bold text-[#0A1628] mb-6 opacity-0">
-            Process Overview & Benefits
-          </h3>
+        {/* Process Overview & Benefits Section - Two Separate Boxes */}
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
+          {/* Left Box - Treatment Process */}
+          <div className="process-section-container p-6 bg-white border border-gray-200 rounded-2xl shadow-lg opacity-0">
+            <div className="flex items-center gap-2 mb-4">
+              <Activity className="w-5 h-5 text-[#155DFC]" />
+              <h3 className="process-title text-lg font-semibold text-[#0A1628]">
+                {sections.processOverview.title}
+              </h3>
+            </div>
 
-          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-            {/* Left - Treatment Process */}
-            <div>
-              <div className="flex items-center gap-2 mb-4">
-                <Activity className="w-5 h-5 text-[#155DFC]" />
-                <span className="text-sm font-semibold text-[#0A1628]">
-                  {sections.processOverview.title}
-                </span>
-              </div>
+            <ul className="space-y-3">
+              {sections.processOverview.steps.map((step, index) => (
+                <li
+                  key={index}
+                  className="process-step flex items-center gap-3 opacity-0 cursor-default"
+                  onMouseEnter={handleProcessHover}
+                  onMouseLeave={handleProcessLeave}
+                >
+                  <span className="flex items-center justify-center w-6 h-6 bg-[#155DFC] text-white text-xs font-bold rounded-full flex-shrink-0 transition-transform duration-300">
+                    {index + 1}
+                  </span>
+                  <span className="process-text text-sm text-gray-600 transition-transform duration-300">{step}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-              <ul className="space-y-3">
-                {sections.processOverview.steps.map((step, index) => (
-                  <li
-                    key={index}
-                    className="process-step flex items-center gap-3 opacity-0 cursor-default"
-                    onMouseEnter={handleProcessHover}
-                    onMouseLeave={handleProcessLeave}
-                  >
-                    <span className="flex items-center justify-center w-6 h-6 bg-[#155DFC] text-white text-xs font-bold rounded-full flex-shrink-0 transition-transform duration-300">
-                      {index + 1}
+          {/* Right Box - Key Benefits */}
+          <div className="benefits-card p-6 bg-[#F0F9FF] border border-gray-200 rounded-2xl shadow-lg opacity-0">
+            <h3 className="text-lg font-semibold text-[#0A1628] mb-4">{sections.keyBenefits.title}</h3>
+            <ul className="space-y-4">
+              {sections.keyBenefits.items.map((benefit, index) => (
+                <li key={index} className="flex items-start gap-3">
+                  <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
+                  <div>
+                    <span className="text-sm font-semibold text-[#0A1628] block">
+                      {benefit}
                     </span>
-                    <span className="process-text text-sm text-gray-600 transition-transform duration-300">{step}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Right - Key Benefits (Benefits Card) */}
-            <div className="benefits-card bg-[#F0F9FF] rounded-xl p-6 opacity-0">
-              <h4 className="text-sm font-semibold text-[#0A1628] mb-4">{sections.keyBenefits.title}</h4>
-              <ul className="space-y-4">
-                {sections.keyBenefits.items.map((benefit, index) => (
-                  <li key={index} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
-                    <div>
-                      <span className="text-sm font-semibold text-[#0A1628] block">
-                        {benefit}
-                      </span>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>

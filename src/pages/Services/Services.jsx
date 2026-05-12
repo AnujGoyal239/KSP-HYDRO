@@ -161,10 +161,10 @@ const Services = () => {
       </div>
       */}
 
-      {/* Why Choose Us Section with SVG Background */}
-      <div className="relative">
+      {/* Why Choose Us Section with SVG Background - Hidden on Mobile */}
+      <div className="relative hidden md:block">
         {/* SVG Background Shape */}
-        <div className="absolute -top-8 md:-top-16 left-0 z-0 w-full h-[calc(100%+2rem)] md:h-[calc(100%+4rem)] overflow-hidden pointer-events-none hidden md:block">
+        <div className="absolute -top-8 md:-top-16 left-0 z-0 w-full h-[calc(100%+2rem)] md:h-[calc(100%+4rem)] overflow-hidden pointer-events-none">
           <svg
             className="w-full h-full"
             preserveAspectRatio="none"
@@ -176,13 +176,6 @@ const Services = () => {
               d="M953.559 918.092C1176.54 814.147 1312.66 953.054 1352.85 1035.5L1349.72 379.579C1268.29 277.825 1152.42 271.563 1097.62 280.956C1042.81 290.349 983.31 248.081 980.179 223.034C980.179 59.0002 657.093 112.5 643.522 112.5C450.398 119 49.1196 105.6 -11.0004 0V514.207C5.28442 603.124 90.7795 694.233 131.491 728.673C193.081 774.593 341.941 852.343 444.66 795.987C547.38 739.631 620.035 793.378 643.522 827.296C741.231 990.102 890.926 955.663 953.559 918.092Z"
               fill="#E8EFFF"
             />
-          </svg>
-        </div>
-
-        {/* Mobile SVG Background Shape */}
-        <div className="absolute top-0 left-0 z-0 w-full overflow-hidden pointer-events-none md:hidden">
-          <svg width="100%" height="503" viewBox="0 0 377 503" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <path d="M244.307 445.968C318.205 395.476 363.318 462.951 376.638 503V185C349.653 135.573 310.213 131.913 292.05 136.476C273.887 141.038 254.167 120.507 253.129 108.34C253.129 28.6596 146.054 54.6477 141.556 54.6477C77.5519 57.805 20.5623 51.2958 0.637695 0V250.5C0.637695 294.5 -5.8623 321.5 22.6377 348C42.1377 360 51.0479 360.182 94.1377 353C124.138 348 133.772 385.388 141.556 401.864C173.938 480.948 223.549 464.218 244.307 445.968Z" fill="#E8EFFF" />
           </svg>
         </div>
 

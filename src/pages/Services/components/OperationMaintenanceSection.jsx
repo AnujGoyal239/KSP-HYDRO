@@ -193,7 +193,10 @@ const OperationMaintenanceSection = () => {
 
               <ul className="space-y-2">
                 {card.items.map((item, itemIndex) => (
-                  <li key={itemIndex} className="flex items-start gap-2">
+                  <li 
+                    key={itemIndex} 
+                    className={`flex items-start gap-2 ${itemIndex === 3 ? 'hidden md:flex' : ''}`}
+                  >
                     <CheckCircle className="w-5 h-5 text-emerald-500 flex-shrink-0 mt-0.5" />
                     <span className="text-sm text-gray-600">{item}</span>
                   </li>
@@ -206,7 +209,7 @@ const OperationMaintenanceSection = () => {
         {/* AMC Benefits Section */}
         <div className="p-8 shadow-sm bg-gray-50 rounded-lg lg:p-12">
           <h3 className="mb-10 text-2xl font-bold text-center text-slate-900">
-            AMC Benefits
+            AMC Benefits Section
           </h3>
 
           <div className="grid grid-cols-2 gap-8 lg:grid-cols-4">
@@ -218,12 +221,9 @@ const OperationMaintenanceSection = () => {
                 >
                   <benefit.icon className="w-6 h-6 text-white" />
                 </div>
-                <h4 className="mb-1 font-semibold text-slate-900">
+                <h4 className="font-semibold text-slate-900">
                   {benefit.title}
                 </h4>
-                <p className="text-sm text-gray-500">
-                  {benefit.description}
-                </p>
               </div>
             ))}
           </div>

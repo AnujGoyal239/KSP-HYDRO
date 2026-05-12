@@ -36,31 +36,32 @@ const Career = () => {
       </div>
 
       <CultureSection />
-      <div className="relative">
+      
+      {/* Why Join Section with Green Background */}
+      <div className="relative overflow-hidden">
         {/* Desktop Background SVG */}
-        <div className="absolute top-0 left-0 w-full hidden md:block z-0 pointer-events-none ">
+        <div className="absolute inset-0 w-full hidden md:block z-0 pointer-events-none">
           <svg
-            className="w-full h-auto"
-            height="1035"
+            className="w-full h-full"
             viewBox="0 0 1340 1036"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            preserveAspectRatio="xMidYMid slice"
+            preserveAspectRatio="none"
           >
             <path d="M949.933 917.85C1169.99 813.932 1304.33 952.802 1344 1035.23L1340.91 379.479C1260.55 277.752 1146.19 271.492 1092.1 280.882C1038.02 290.272 979.295 248.016 976.204 222.976C976.204 58.9846 657.348 112.471 643.955 112.471C453.359 118.969 57.3336 105.572 -1.99939 0V514.071C14.0723 602.965 98.4481 694.05 138.627 728.481C199.411 774.388 346.321 852.118 447.696 795.777C549.071 739.436 620.775 793.169 643.955 827.078C740.384 989.841 888.119 955.411 949.933 917.85Z" fill="#EFFEEF" />
           </svg>
         </div>
 
         {/* Mobile Background SVG */}
-        <div className="absolute top-0 right-0 w-full md:hidden z-0 pointer-events-none">
+        <div className="absolute inset-0 w-full md:hidden z-0 pointer-events-none">
           <svg
-            className="w-full"
-            height="362"
-            viewBox="0 0 375 362"
+            className="w-full h-full"
+            viewBox="0 0 375 461"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
           >
-            <path d="M243.669 320.955C317.567 284.617 362.68 333.177 376 362V133.141C349.015 97.5691 309.575 94.9356 291.412 98.2192C273.249 101.503 253.529 86.7267 252.491 77.9705C225.5 14.5 145.416 39.329 140.918 39.329C74 64 19.9247 36.9166 0 0V180.28C5.397 211.365 3 227 22 245.5C42.4118 261.553 65.5 265.5 93.5 254.048C129.905 239.158 133.134 277.357 140.918 289.214C173.301 346.129 222.912 334.09 243.669 320.955Z" fill="#EFFEEF" />
+            <path d="M328.685 445.968C346.5 433.12 365.5 435 374.5 458V142.5C352.359 147.063 340.705 120.507 339.44 108.34C339.44 28.6596 208.912 54.6477 203.429 54.6477C125.407 57.805 23.2887 51.2958 -1 0V249.779C5.5791 292.971 16.5 338.5 30.5 358.5C36.1 366.5 81.5895 414.03 123.088 386.655C164.587 359.28 193.94 385.388 203.429 401.864C242.904 480.948 303.381 464.218 328.685 445.968Z" fill="#EFFEEF" />
           </svg>
         </div>
 

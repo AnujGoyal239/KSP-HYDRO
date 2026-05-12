@@ -192,7 +192,10 @@ const DesignEngineeringSection = () => {
                 <p className="font-semibold text-[#1a1f36] mb-3">Key Activities:</p>
                 <ul className="space-y-2">
                   {card.activities.map((activity, actIndex) => (
-                    <li key={actIndex} className="flex items-start gap-2">
+                    <li 
+                      key={actIndex} 
+                      className={`flex items-start gap-2 ${actIndex === 3 ? 'hidden md:flex' : ''}`}
+                    >
                       <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-gray-600">{activity}</span>
                     </li>
@@ -208,7 +211,7 @@ const DesignEngineeringSection = () => {
           <h3 className="text-2xl md:text-3xl font-bold text-[#1a1f36] text-center mb-12">
             Our Consultancy Process
           </h3>
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-3 gap-0">
             {designEngineeringData.processSteps.map((step, index) => (
               <div key={index} className="text-center">
                 <p className="text-4xl md:text-5xl font-bold text-[#0066cc] mb-3">

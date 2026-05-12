@@ -3,7 +3,7 @@ import {
   Wrench, HardHat, ClipboardCheck, Shield, 
   Settings, CalendarCheck, Activity, HeadphonesIcon,
   TrendingUp, Clock, RefreshCw, CheckCircle,
-  MonitorPlay, Headphones, FileText
+  ShieldCheck, RotateCw
 } from 'lucide-react';
 
 export const servicesHeroData = {
@@ -18,153 +18,152 @@ export const howWeWorkData = {
 
 export const designEngineeringData = {
   title: "Design Engineering & Consultancy",
-  description: "Engineering-led consulting services to design efficient, compliant, and application-specific water and wastewater systems.",
+  description: "End-to-end technical planning and engineering solutions for efficient, compliant water and wastewater treatment systems.",
   cards: [
     {
       icon: Search,
       title: "Site Study & Assessment",
-      description: "We begin with a detailed evaluation of site conditions, water characteristics, and operational requirements to establish a strong technical foundation.",
+      description: "Comprehensive evaluation of wastewater sources, pollution levels, and treatment requirements before discharge into natural water bodies.",
       activities: [
-        "Water quality analysis",
-        "Flow and load assessment",
-        "Space and layout feasibility",
-        "Environmental and regulatory considerations"
+        "Separation of solid wastes",
+        "Removal of oils and grease",
+        "Effluent analysis and treatment requirement",
+        "Identification of pollutants in industrial & domestic wastewater"
       ]
     },
     {
       icon: ClipboardList,
       title: "Design & Planning",
-      description: "Custom system designs developed to match project requirements, ensuring performance, reliability, & compliance.",
+      description: "Engineering of efficient wastewater treatment plants using proven technologies & industry experience.",
       activities: [
-        "Process and layout drawings",
-        "Equipment sizing and selection",
-        "Compliance and approval documentation",
-        "Process design and engineering calculations"
+        "Design of STP, ETP & Industrial WTP systems",
+        "Filtration & effluent-specific treatment planning",
+        "Selection of aerobic/anaerobic methods",
+        "Engineering for RO, Ozone & Raw Water Treatment systems"
       ]
     },
     {
       icon: Lightbulb,
       title: "Technology Selection",
-      description: "Objective guidance to select the suitable treatment technology based on lifecycle cost performance, and future scalability.",
+      description: "Implementation of sophisticated efficient treatment technologies based on effluent characteristics & regulatory standards.",
       activities: [
-        "Performance optimization",
-        "Capex and Opex evaluation",
-        "Provision for future expansion",
-        "Technology comparison (MBR, MBBR, etc.)"
+        "Advanced filtration techniques",
+        "Effluent-specific treatment solutions",
+        "Pollution control & compliance-driven process",
+        "Selection of suitable microorganisms (aerobic / anaerobic)"
       ]
     }
   ],
   processSteps: [
-    { number: "01", title: "Discovery", description: "" },
-    { number: "02", title: "Analysis", description: "" },
-    { number: "03", title: "Design", description: "" },
-    { number: "04", title: "Approval", description: "" }
+    { number: "01", title: "Design", description: "" },
+    { number: "02", title: "Development", description: "" },
+    { number: "03", title: "Delivery", description: "" }
   ]
 };
 
 export const erectionCommissioningData = {
   title: "Erection & Commissioning",
-  description: "Professional installation and commissioning services ensuring your system operates at peak performance",
+  description: "Turnkey installation, construction, and commissioning services ensuring reliable and standards-compliant plant performance.",
   cards: [
     {
       icon: HardHat,
-      title: "Professional Installation",
-      description: "Execution by experienced teams following approved designs, safety norms, and quality standards.",
+      title: "Turnkey Erection & Commissioning",
+      description: "Complete turnkey execution for water and wastewater treatment plants, from design to commissioning.",
       items: [
-        "Control system setup",
-        "Piping and electrical works",
-        "Site coordination and supervision",
-        "Equipment installation and integration"
+        "Water supply & fire fighting projects",
+        "Onshore & offshore large diameter piping",
+        "Design, construction, erection & commissioning",
+        "Supply & commissioning of pressure sand filters"
       ]
     },
     {
       icon: ClipboardCheck,
-      title: "Testing & Validation",
-      description: "Comprehensive testing to verify that the system performs as designed under real operating conditions.",
+      title: "Civil Construction & Infrastructure",
+      description: "Execution of civil and structural works essential for treatment plant operations.",
       items: [
-        "Safety system verification",
-        "Quality parameter validation",
-        "Performance and load testing",
-        "Mechanical and process testing"
+        "MS fabrication structures",
+        "STP tanks & civil structures",
+        "Swimming pools construction",
+        "MS fabricated containerised units"
       ]
     },
     {
       icon: Shield,
-      title: "Safety & Quality Assurance",
-      description: "Strict safety practices and quality checks for staff, embedded at every stage of execution.",
+      title: "Piping & Specialized Works",
+      description: "Specialized pipeline and structural installations for complex project requirements.",
       items: [
-        "Certified installation teams",
-        "Safety protocol compliance",
-        "PPE and site safety measures",
-        "Quality checks at each milestone"
+        "Civil construction works",
+        "Large diameter piping systems",
+        "Underwater HDPE pipeline laying",
+        "Structural Installation & Integration"
       ]
     }
   ],
   handoverItems: [
-    { icon: MonitorPlay, text: "Operator training sessions" },
-    { icon: Headphones, text: "Initial troubleshooting support" },
-    { icon: FileText, text: "Documentation and manuals" },
-    { icon: Settings, text: "System walkthroughs" }
+    { icon: ShieldCheck, text: "Tender preparation & bid evaluation" },
+    { icon: RotateCw, text: "Estimation & contractor prequalification" },
+    { icon: Clock, text: "Construction supervision & QA certification" },
+    { icon: Settings, text: "Layout plans & detailed engineering design" }
   ]
 };
 
 export const operationMaintenanceData = {
   title: "Operation & Maintenance",
-  description: "Comprehensive support services to keep your systems running efficiently for years to come",
+  description: "Comprehensive plant operation and lifecycle management to optimize performance, ensure compliance, and reduce operating costs.",
   cards: [
     {
       icon: CalendarCheck,
-      title: "Preventive & Breakdown Maintenance",
-      description: "Planned maintenance programs to minimize downtime and extend system life.",
+      title: "Complete Plant Management",
+      description: "Comprehensive operation and maintenance of water and wastewater treatment plants, whether built by us or not.",
       items: [
-        "Equipment performance checks",
-        "Breakdown handling and repairs",
-        "Preventive maintenance schedules",
-        "Spares and consumables management"
+        "Asset lifecycle management and renewal",
+        "24/7 treatment process management",
+        "Integrated staff & responsibility management",
+        "Preventive and corrective maintenance of facilities & equipment"
       ]
     },
     {
       icon: Activity,
       title: "Monitoring & Compliance",
-      description: "Ensuring systems operate within statutory and environmental norms.",
+      description: "Ensuring adherence to all statutory, environmental, health and safety regulations.",
       items: [
-        "Compliance documentation",
-        "Safety and performance audits",
-        "Sludge handling as per regulations",
-        "Water testing (NABL-accredited labs)"
+        "Asset and performance audits",
+        "Statutory documentation & reporting",
+        "Analytical monitoring at every treatment stage",
+        "Compliance with environmental & quality standards"
       ]
     },
     {
       icon: HeadphonesIcon,
-      title: "Plant Operations",
-      description: "End-to-end operation of water and wastewater treatment plants by trained technical personnel.",
+      title: "Water & Wastewater Operations",
+      description: "End-to-end operation of diverse treatment systems across industries and municipalities.",
       items: [
-        "STP, ETP, WTP & RO",
-        "Daily operational reporting",
-        "Process monitoring and control",
-        "swimming pools, and water bodies"
+        "Sewage & Effluent Treatment Plants",
+        "RO / Desalination (brackish & sea water)",
+        "Sludge recovery and odour management",
+        "Drinking Water Production (well & surface water)"
       ]
     }
   ],
   benefits: [
     {
       icon: TrendingUp,
-      title: "Optimized Performance",
+      title: "Cost Optimization",
       description: "Regular tuning ensures systems run at peak efficiency, reducing energy consumption and operational costs."
     },
     {
       icon: Clock,
-      title: "Extended Equipment Life",
+      title: "Asset Protection",
       description: "Proactive maintenance prevents premature wear and tear, protecting your investment for the long term."
     },
     {
       icon: Shield,
-      title: "Regulatory Compliance",
+      title: "Full Compliance",
       description: "We handle all environmental norms, audits, and documentation, keeping you fully compliant."
     },
     {
       icon: RefreshCw,
-      title: "Priority Support",
+      title: "Flexible Support Contracts",
       description: "Quick response times and dedicated technical support for any operational issues or breakdowns."
     }
   ]

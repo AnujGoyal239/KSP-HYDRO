@@ -7,40 +7,39 @@ const ProductsData = [
   {
     id: "SPR-001",
     slug: "swimming-pool-lake-revival",
-    title: "Swimming Pool & Lake Revival",
+    title: "Swimming Pool Systems",
     image: Product1,
-    homeSubtitle: "Advanced circulation, filtration, and treatment systems",
+    homeSubtitle: "Advanced filtration and circulation systems for clean, safe, and hygienic swimming pools",
     subtitle:
-      "Advanced circulation, filtration, and treatment systems to maintain clean, safe, and visually appealing water bodies.",
+      "Advanced filtration and circulation systems for clean, safe, and hygienic swimming pools.",
     svg: "left",
-    headerIcon: { type: "droplets", bgColor: "#16A34A", iconColor: "#FFFFFF" },
+    headerIcon: { type: "flask", bgColor: "#155DFC", iconColor: "#FFFFFF" },
     sections: {
       whatItIs: {
         title: "What It Is",
         description:
-          "Integrated water circulation, filtration, aeration, and treatment systems designed for swimming pools, decorative lakes, and water bodies to maintain optimal water quality and hygiene.",
+          "Integrated filtration, circulation, and disinfection systems designed to maintain optimal water quality and hygiene in swimming pools.",
       },
       whereItsUsed: {
         title: "Where It's Used",
-        items: ["Hotels & resorts", "Residential complexes", "Public parks & lakes", "Sports & recreation centers"],
+        items: ["Hotels & resorts", "Residential complexes", "Sports & recreation facilities", "Private & public swimming pools"],
       },
       advantages: {
         title: "Advantages",
-        items: ["Improved water clarity", "Reduced chemical dependency", "Energy-efficient operation", "Automated monitoring options"],
+        items: ["Crystal-clear water quality", "Reduced chemical usage", "Energy-efficient operation", "Easy monitoring and maintenance"],
       },
       processOverview: {
         title: "Treatment Process",
         steps: [
-          "Debris removal & pre-filtration",
+          "Pre-filtration & debris removal",
           "Sand/media filtration",
-          "Chemical balancing & disinfection",
-          "Aeration / UV / ozone treatment (optional)",
+          "Chemical dosing & disinfection",
           "Continuous circulation & monitoring",
         ],
       },
       keyBenefits: {
         title: "Key Benefits",
-        items: ["Crystal clear water", "Lower maintenance effort", "Safe for users & environment"],
+        items: ["Safe and hygienic water", "Low maintenance effort", "Consistent water quality", "User-friendly operation"],
       },
     },
   },
@@ -48,13 +47,13 @@ const ProductsData = [
   {
     id: "WTP-002",
     slug: "water-treatment-plant",
-    title: "Water Treatment Plant",
+    title: "Water Treatment Plant (WTP)",
     image: Product2,
-    homeSubtitle: "Reliable water treatment systems for safe potable supply",
+    homeSubtitle: "Reliable water treatment systems designed to deliver safe, potable water for diverse applications",
     subtitle:
       "Reliable water treatment systems designed to deliver safe, potable water for diverse applications.",
     svg: "right",
-    headerIcon: { type: "filter", bgColor: "#2563EB", iconColor: "#FFFFFF" },
+    headerIcon: { type: "flask", bgColor: "#155DFC", iconColor: "#FFFFFF" },
     sections: {
       whatItIs: {
         title: "What It Is",
@@ -95,7 +94,7 @@ const ProductsData = [
     subtitle:
       "Efficient sewage treatment solutions for safe discharge or reuse of treated wastewater.",
     svg: "left",
-    headerIcon: { type: "recycle", bgColor: "#16A34A", iconColor: "#FFFFFF" },
+    headerIcon: { type: "flask", bgColor: "#155DFC", iconColor: "#FFFFFF" },
     sections: {
       whatItIs: {
         title: "What It Is",
@@ -108,14 +107,14 @@ const ProductsData = [
       },
       advantages: {
         title: "Advantages",
-        items: ["Compact footprint", "Odour-controlled operation", "Reuse-ready treated water", "Low operating cost"],
+        items: ["Compact footprint & Odour-controlled operation", "Reuse-ready treated water", "Low operating cost", "Self-developed online water analyzer & automatic fine screen system"],
       },
       processOverview: {
         title: "Treatment Process",
         steps: [
           "Screening & grit removal",
           "Biological treatment (MBR / MBBR / FMBR)",
-          "Secondary clarification / membrane filtration",
+          "Secondary clarification/membrane filtration",
           "Disinfection",
           "Sludge handling",
         ],
@@ -132,11 +131,11 @@ const ProductsData = [
     slug: "effluent-treatment-plant",
     title: "Effluent Treatment Plant (ETP)",
     image: Product4,
-    homeSubtitle: "Industrial effluent treatment systems for complex wastewater streams",
+    homeSubtitle: "Industrial effluent treatment systems designed to handle complex wastewater streams",
     subtitle:
       "Industrial effluent treatment systems designed to handle complex wastewater streams.",
     svg: "right",
-    headerIcon: { type: "flask", bgColor: "#2563EB", iconColor: "#FFFFFF" },
+    headerIcon: { type: "flask", bgColor: "#155DFC", iconColor: "#FFFFFF" },
     sections: {
       whatItIs: {
         title: "What It Is",
@@ -163,7 +162,7 @@ const ProductsData = [
       },
       keyBenefits: {
         title: "Key Benefits",
-        items: ["Compliance with discharge norms", "Effective treatment of complex effluents", "Reduced environmental impact", "Stable performance under variable loads"],
+        items: ["Compliance with discharge norms", "Effective treatment of complex effluents", "Reduced environmental impact", "Stable performance"],
       },
     },
   },
@@ -171,49 +170,89 @@ const ProductsData = [
   {
     id: "RO-005",
     slug: "industrial-reverse-osmosis",
-    title: "Reverse Osmosis (Industrial RO) Systems",
+    title: "Reverse Osmosis (RO) Systems",
     image: Product5,
-    homeSubtitle: "High-efficiency RO systems for producing purified water in industrial applications",
+    homeSubtitle: "Efficient RO systems for delivering safe drinking water and high-purity industrial water",
     subtitle:
-      "High-efficiency RO systems for producing purified water in industrial applications.",
+      "Efficient RO systems for delivering safe drinking water and high-purity industrial water.",
     svg: "left",
-    headerIcon: { type: "layers", bgColor: "#16A34A", iconColor: "#FFFFFF" },
+    headerIcon: { type: "flask", bgColor: "#155DFC", iconColor: "#FFFFFF" },
     sections: {
       whatItIs: {
         title: "What It Is",
         description:
-          "Membrane-based purification systems that remove dissolved salts, contaminants, and impurities from water.",
+          "Membrane-based purification system for removing dissolved salts and contaminants from water.",
       },
       whereItsUsed: {
         title: "Where It's Used",
-        items: ["Process water applications", "Boiler & cooling systems", "Industrial utilities", "Water reuse systems"],
+        items: ["Homes & residential use", "Offices & commercial spaces", "Industrial process water", "Boiler & cooling systems"],
       },
       advantages: {
         title: "Advantages",
-        items: ["High recovery rates", "Consistent output quality", "Energy-optimized design", "Low maintenance"],
+        items: ["High-purity water output", "Compact & scalable design", "Energy-efficient operation", "Low maintenance"],
       },
       processOverview: {
         title: "Treatment Process",
         steps: [
-          "Pre-treatment & fine filtration",
-          "High-pressure membrane separation",
+          "Pre-filtration",
+          "RO membrane separation",
           "Permeate collection",
-          "Reject handling",
-          "Monitoring & control",
+          "Post-treatment & storage",
         ],
       },
       keyBenefits: {
         title: "Key Benefits",
-        items: ["High-purity water output", "Reduced dissolved solids", "Energy-optimized operation"],
+        items: ["Safe drinking & process water", "Consistent water quality", "Reduced dissolved solids", "Reliable performance"],
       },
     },
   },
 
   {
-    id: "DRO-006",
+    id: "LRWB-006",
+    slug: "lake-revival-water-body-aeration",
+    title: "Lake Revival & Water Body Aeration Systems",
+    image: Product6,
+    homeSubtitle: "Effective aeration and treatment solutions for restoring and maintaining healthy water bodies",
+    subtitle:
+      "Effective aeration and treatment solutions for restoring and maintaining healthy water bodies.",
+    svg: "right",
+    headerIcon: { type: "flask", bgColor: "#155DFC", iconColor: "#FFFFFF" },
+    sections: {
+      whatItIs: {
+        title: "What It Is",
+        description:
+          "Aeration and circulation systems designed to improve oxygen levels, reduce pollutants, and restore ecological balance.",
+      },
+      whereItsUsed: {
+        title: "Where It's Used",
+        items: ["Public parks & lakes", "Residential water bodies", "Decorative ponds", "Urban reservoirs"],
+      },
+      advantages: {
+        title: "Advantages",
+        items: ["Improved water quality & clarity", "Reduction in algae and odour", "Eco-friendly treatment", "Low operational cost"],
+      },
+      processOverview: {
+        title: "Treatment Process",
+        steps: [
+          "Debris removal",
+          "Aeration",
+          "Circulation & oxygenation",
+          "Optional UV/ozone",
+          "Monitoring",
+        ],
+      },
+      keyBenefits: {
+        title: "Key Benefits",
+        items: ["Restored aquatic health", "Reduced pollutants", "Better aesthetics", "Sustainable solution"],
+      },
+    },
+  },
+
+  {
+    id: "DRO-007",
     slug: "domestic-ro-systems",
     title: "Domestic RO Systems",
-    image: Product6,
+    image: Product7,
     homeSubtitle: "Compact RO systems for safe and reliable drinking water",
     subtitle: "Compact RO systems for safe and reliable drinking water.",
     svg: "right",
@@ -244,175 +283,200 @@ const ProductsData = [
   },
 
   {
-    id: "UF-007",
+    id: "UF-008",
     slug: "ultra-filtration-systems",
     title: "Ultra Filtration (UF) Systems",
-    image: Product7,
-    homeSubtitle: "Membrane filtration systems for removing bacteria, turbidity, and suspended particles",
+    image: Product8,
+    homeSubtitle: "UF systems using membrane filtration to remove bacteria, turbidity, and suspended particles",
     subtitle:
       "UF systems using membrane filtration to remove bacteria, turbidity, and suspended particles.",
     svg: "left",
-    headerIcon: { type: "sliders", bgColor: "#16A34A", iconColor: "#FFFFFF" },
+    headerIcon: { type: "flask", bgColor: "#155DFC", iconColor: "#FFFFFF" },
     sections: {
       whatItIs: {
         title: "What It Is",
         description:
-          "UF systems using membrane filtration to remove bacteria, turbidity, and suspended particles.",
+          "UF membrane filtration system.",
       },
       whereItsUsed: {
         title: "Where It's Used",
-        items: ["Pre-treatment for RO", "Drinking water treatment", "Industrial water systems", "Municipal infrastructure"],
+        items: ["RO pre-treatment", "Drinking water", "Industrial systems"],
       },
       advantages: {
         title: "Advantages",
-        items: ["Chemical-free filtration", "High filtration efficiency", "Consistent performance", "Low operating cost"],
+        items: ["Chemical-free filtration", "High efficiency", "Consistent performance"],
       },
       processOverview: {
         title: "Treatment Process",
-        steps: ["Pre-screening", "Hollow fiber / membrane filtration", "Backwashing & cleaning", "Treated water collection"],
+        steps: [
+          "Pre-screening",
+          "Membrane filtration",
+          "Backwashing",
+          "Collection",
+        ],
       },
       keyBenefits: {
         title: "Key Benefits",
-        items: ["Removal of bacteria & turbidity", "Chemical-free filtration", "Consistent performance"],
+        items: ["Removes bacteria", "Ideal RO pre-treatment", "Consistent output"],
       },
     },
   },
 
   {
-    id: "MBR-008",
+    id: "MBR-009",
     slug: "membrane-bio-reactor",
     title: "Membrane Bio Reactor (MBR)",
-    image: Product8,
+    image: Product9,
     homeSubtitle: "Advanced sewage treatment with superior effluent quality and minimal footprint",
     subtitle:
       "Advanced sewage treatment with superior effluent quality and minimal footprint.",
     svg: "right",
-    headerIcon: { type: "cpu", bgColor: "#2563EB", iconColor: "#FFFFFF" },
+    headerIcon: { type: "flask", bgColor: "#155DFC", iconColor: "#FFFFFF" },
     sections: {
       whatItIs: {
         title: "What It Is",
         description:
-          "A combination of biological treatment and membrane filtration producing high-quality treated water suitable for reuse.",
+          "Biological + membrane filtration system.",
       },
       whereItsUsed: {
         title: "Where It's Used",
-        items: ["Space-constrained sites", "Commercial & institutional buildings", "High-end residential projects"],
+        items: ["Space-constrained sites", "Commercial buildings", "Residential projects"],
       },
       advantages: {
         title: "Advantages",
-        items: ["Excellent treated water quality", "Small footprint", "Reduced sludge generation"],
+        items: ["High-quality output", "Small footprint", "Less sludge"],
       },
       processOverview: {
         title: "Treatment Process",
-        steps: ["Biological degradation", "Submerged membrane filtration", "Treated water recovery", "Sludge management"],
+        steps: [
+          "Biological treatment",
+          "Membrane filtration",
+          "Recovery",
+          "Sludge handling",
+        ],
       },
       keyBenefits: {
         title: "Key Benefits",
-        items: ["Superior treated water quality", "Suitable for reuse applications", "Very small footprint"],
+        items: ["Superior quality", "Reuse-ready", "Compact"],
       },
     },
   },
 
   {
-    id: "MBBR-009",
+    id: "MBBR-010",
     slug: "moving-bed-bio-reactor",
-    title: "Moving Bed Bio Reactor (MBBR)",
-    image: Product9,
-    homeSubtitle: "Robust biological treatment for varying wastewater loads",
-    subtitle: "Robust biological treatment for varying wastewater loads.",
+    title: "Bio-Activated HD Reactor (B-HD-R)",
+    image: Product10,
+    homeSubtitle: "Hybrid biological treatment system",
+    subtitle: "Hybrid biological treatment system.",
     svg: "left",
-    headerIcon: { type: "refresh", bgColor: "#16A34A", iconColor: "#FFFFFF" },
+    headerIcon: { type: "flask", bgColor: "#155DFC", iconColor: "#FFFFFF" },
     sections: {
       whatItIs: {
         title: "What It Is",
         description:
-          "Biological treatment using carrier media to support microbial growth for efficient organic matter removal.",
+          "MBBR + HD membrane system.",
       },
       whereItsUsed: {
         title: "Where It's Used",
-        items: ["Industrial wastewater", "Municipal STPs", "Retrofit projects"],
+        items: ["STPs", "Reuse systems", "Industrial use"],
       },
       advantages: {
         title: "Advantages",
-        items: ["Flexible operation", "High treatment efficiency", "Easy expansion"],
+        items: ["Low power", "Compact", "High quality output"],
       },
       processOverview: {
         title: "Treatment Process",
-        steps: ["Screening & equalization", "Bio-media based treatment", "Secondary clarification", "Disinfection"],
+        steps: [
+          "Bio treatment",
+          "Membrane filtration",
+          "Mixing",
+          "Recovery",
+        ],
       },
       keyBenefits: {
         title: "Key Benefits",
-        items: ["Flexible & robust operation", "Handles load fluctuations", "Cost-effective solution"],
+        items: ["Low sludge", "Reliable", "High efficiency"],
       },
     },
   },
 
   {
-    id: "FMBR-010",
+    id: "FMBR-011",
     slug: "fluidized-media-bio-reactor",
     title: "Fluidized Media Bio Reactor (FMBR)",
-    image: Product10,
-    homeSubtitle: "Efficient treatment technology combining compact design with reliable performance",
+    image: Product11,
+    homeSubtitle: "Compact biological treatment system",
     subtitle:
-      "Efficient treatment technology combining compact design with reliable performance.",
+      "Compact biological treatment system.",
     svg: "right",
-    headerIcon: { type: "activity", bgColor: "#2563EB", iconColor: "#FFFFFF" },
+    headerIcon: { type: "flask", bgColor: "#155DFC", iconColor: "#FFFFFF" },
     sections: {
       whatItIs: {
         title: "What It Is",
         description:
-          "A biological reactor using fluidized media for effective treatment with reduced space requirements.",
+          "Fluidized bio-media system with MBBR.",
       },
       whereItsUsed: {
         title: "Where It's Used",
-        items: ["Industrial facilities", "Municipal wastewater systems"],
+        items: ["Industrial wastewater", "STPs", "Upgrades"],
       },
       advantages: {
         title: "Advantages",
-        items: ["Reduced footprint", "Stable biological performance", "Cost-effective operation"],
+        items: ["Compact", "Flexible", "Efficient"],
       },
       processOverview: {
         title: "Treatment Process",
-        steps: ["Pre-treatment & screening", "Fluidized media biological reaction", "Solid-liquid separation", "Treated water discharge"],
+        steps: [
+          "Screening",
+          "Reaction",
+          "Clarification",
+          "Disinfection",
+        ],
       },
       keyBenefits: {
         title: "Key Benefits",
-        items: ["Compact system design", "Efficient organic removal", "Reliable long-term operation"],
+        items: ["High efficiency", "Handles load variation"],
       },
     },
   },
 
   {
-    id: "SMS-011",
+    id: "SMS-012",
     slug: "specialised-mechanical-systems",
-    title: "Specialised & Mechanical Systems",
+    title: "Sequencing Batch Reactor (SBR)",
     image: Product11,
-    homeSubtitle: "Supporting systems essential for efficient water and wastewater operations",
+    homeSubtitle: "Batch-based biological treatment system",
     subtitle:
-      "Supporting systems essential for efficient water and wastewater operations.",
+      "Batch-based biological treatment system.",
     svg: "left",
-    headerIcon: { type: "settings", bgColor: "#16A34A", iconColor: "#FFFFFF" },
+    headerIcon: { type: "flask", bgColor: "#155DFC", iconColor: "#FFFFFF" },
     sections: {
       whatItIs: {
         title: "What It Is",
         description:
-          "Essential mechanical and support systems that enable safe, efficient operation of water and wastewater infrastructure.",
+          "Single tank activated sludge system.",
       },
       whereItsUsed: {
         title: "Where It's Used",
-        items: ["Treatment plants and pumping stations", "Industrial and commercial facilities", "Residential, institutional projects", "Municipal projects"],
+        items: ["Industrial", "Hospitals", "Residential"],
       },
       advantages: {
         title: "Advantages",
-        items: ["Reliable system integration", "Enhanced operational efficiency", "Designed for long-term use"],
+        items: ["Automated", "Compact", "High efficiency"],
       },
       processOverview: {
-        title: "Implementation Process",
-        steps: ["System design & integration", "Equipment installation", "Testing & commissioning", "Continuous operation support"],
+        title: "Treatment Process",
+        steps: [
+          "Fill",
+          "Aeration",
+          "Settling",
+          "Discharge",
+        ],
       },
       keyBenefits: {
         title: "Key Benefits",
-        items: ["Seamless system integration", "Improved operational efficiency", "Reliable performance"],
+        items: ["Space-saving", "Stable performance"],
       },
     },
   },

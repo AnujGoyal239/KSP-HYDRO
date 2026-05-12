@@ -45,29 +45,75 @@ const Contact = () => {
         <ContactFormSection />
       </div>
 
-      {/* Careers Content */}
-      <WhyJoinSection />
-      <ApplicationFormSection />
-
-      {/* Offices and Map Section with SVG Background */}
-      <div className="relative">
-        {/* SVG Background - Hidden on mobile, visible on desktop */}
-        <div className="hidden lg:block absolute inset-0 w-full overflow-hidden pointer-events-none" style={{ height: '1036px' }}>
+      {/* Careers Content - Why Join Section with Green Background */}
+      <div className="relative overflow-hidden">
+        {/* Desktop Background SVG */}
+        <div className="absolute inset-0 w-full hidden md:block z-0 pointer-events-none">
           <svg
-            width="1341"
-            height="1036"
-            viewBox="0 0 1341 1036"
+            className="w-full h-full"
+            viewBox="0 0 1340 1036"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="w-full"
-            preserveAspectRatio="xMidYMid slice"
-            style={{ height: '1036px' }}
+            preserveAspectRatio="none"
           >
-            <path d="M943.559 918.092C1166.54 814.147 1302.66 953.054 1342.85 1035.5L1339.72 379.579C1258.29 277.825 1142.42 271.563 1087.62 280.956C1032.81 290.349 973.31 248.081 970.179 223.034C970.179 59.0002 647.093 112.5 633.522 112.5C440.398 119 39.1196 105.6 -21.0004 0V514.207C-4.71558 603.124 80.7795 694.233 121.491 728.673C183.081 774.593 331.941 852.343 434.66 795.987C537.38 739.631 610.035 793.378 633.522 827.296C731.231 990.102 880.926 955.663 943.559 918.092Z" fill="#EFFEEF" />
+            <path d="M949.933 917.85C1169.99 813.932 1304.33 952.802 1344 1035.23L1340.91 379.479C1260.55 277.752 1146.19 271.492 1092.1 280.882C1038.02 290.272 979.295 248.016 976.204 222.976C976.204 58.9846 657.348 112.471 643.955 112.471C453.359 118.969 57.3336 105.572 -1.99939 0V514.071C14.0723 602.965 98.4481 694.05 138.627 728.481C199.411 774.388 346.321 852.118 447.696 795.777C549.071 739.436 620.775 793.169 643.955 827.078C740.384 989.841 888.119 955.411 949.933 917.85Z" fill="#EFFEEF" />
           </svg>
         </div>
 
-        {/* Content */}
+        {/* Mobile Background SVG */}
+        <div className="absolute inset-0 w-full md:hidden z-0 pointer-events-none">
+          <svg
+            className="w-full h-full"
+            viewBox="0 0 375 461"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+          >
+            <path d="M328.685 445.968C346.5 433.12 365.5 435 374.5 458V142.5C352.359 147.063 340.705 120.507 339.44 108.34C339.44 28.6596 208.912 54.6477 203.429 54.6477C125.407 57.805 23.2887 51.2958 -1 0V249.779C5.5791 292.971 16.5 338.5 30.5 358.5C36.1 366.5 81.5895 414.03 123.088 386.655C164.587 359.28 193.94 385.388 203.429 401.864C242.904 480.948 303.381 464.218 328.685 445.968Z" fill="#EFFEEF" />
+          </svg>
+        </div>
+
+        <div className="relative z-10">
+          <WhyJoinSection />
+        </div>
+      </div>
+      
+      <ApplicationFormSection />
+
+      {/* Offices and Map Section with Blue Vector Background */}
+      <div className="relative">
+        {/* SVG Background Shape - Desktop */}
+        <div className="absolute -top-8 md:-top-16 left-0 z-0 w-full h-[calc(100%+2rem)] md:h-[calc(100%+4rem)] overflow-hidden pointer-events-none hidden md:block">
+          <svg
+            className="w-full"
+            height="1036"
+            preserveAspectRatio="none"
+            viewBox="0 0 1340 1036"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M387.29 918.092C164.314 814.147 28.19 953.054 -12 1035.5L-8.86831 379.579C72.5556 277.825 188.428 271.563 243.233 280.956C298.037 290.349 357.539 248.081 360.671 223.034C360.671 59.0002 683.757 112.5 697.327 112.5C890.451 119 1291.73 105.6 1351.85 0V514.207C1335.57 603.124 1250.07 694.233 1209.36 728.673C1147.77 774.593 998.909 852.343 896.189 795.987C793.47 739.631 720.815 793.378 697.327 827.296C599.619 990.102 449.924 955.663 387.29 918.092Z"
+              fill="#EFFAFE"
+            />
+          </svg>
+        </div>
+
+        {/* Mobile SVG Background Shape */}
+        <div className="absolute top-0 left-0 z-0 w-full overflow-hidden pointer-events-none md:hidden">
+          <svg
+            width="100%"
+            height="503"
+            viewBox="0 0 374 503"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            preserveAspectRatio="none"
+          >
+            <path d="M132.331 445.968C58.4331 395.476 13.3196 462.951 0 503V185C26.9851 135.573 66.4248 131.913 84.5878 136.476C102.751 141.038 122.471 120.507 123.509 108.34C123.509 28.6596 230.584 54.6477 235.082 54.6477C299.086 57.805 356.075 51.2958 376 0V250.5C370.603 293.692 367.493 331.271 354 348C333.588 370.306 316.543 380.375 282.5 353C248.457 325.625 242.866 385.388 235.082 401.864C202.699 480.948 153.088 464.218 132.331 445.968Z" fill="#EFFAFE" />
+          </svg>
+        </div>
+
+        {/* Content Sections */}
         <div className="relative z-10">
           <OfficesSection />
           <MapSection />

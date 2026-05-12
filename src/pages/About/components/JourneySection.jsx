@@ -17,38 +17,38 @@ const JourneySection = () => {
       side: 'left'
     },
     {
-      year: '2007',
+      year: '2005',
       title: 'Entry into Water & Wastewater Projects',
       description:
-        'KSP Hydro Engineers Pvt. Ltd. dedicatedly incorporated for Projects Division under Water.',
+        'Started Representation for NALCO-WATER & MINING Chemicals Business in Rajasthan & North India.',
       side: 'right'
     },
     {
-      year: '2011',
-      title: 'Infrastructure & Capability Expansion',
+      year: '2008',
+      title: 'Infrastructure',
       description:
-        'Start of new manufacturing facility in Jaipur (RIICO).',
+        'It dedicatedly incorporated for Projects Division Under Water.',
       side: 'left'
+    },
+    {
+      year: '2010',
+      title: 'Geographic Growth',
+      description:
+        'Start of new Manufacturing facility in JAIPUR(RIICO)',
+      side: 'right'
     },
     {
       year: '2015',
       title: 'Administrative & Geographic Growth',
       description:
         'Established new administrative offices and expanded presence across key regions in India.',
-      side: 'right'
+      side: 'left'
     },
     {
       year: '2018',
       title: 'Innovation Award',
       description:
         'Recognized for sustainable water recycling technology.',
-      side: 'left'
-    },
-    {
-      year: '2020',
-      title: 'Major Milestone',
-      description:
-        'Successfully commissioned 500+ water treatment systems.',
       side: 'right'
     },
     {
@@ -169,26 +169,62 @@ const JourneySection = () => {
 
   // Card component for consistent styling
   const MilestoneCard = ({ year, title, description, side }) => (
-    <div className={`timeline-card bg-white rounded-lg p-8 w-full text-center md:p-5 md:${side === 'left' ? 'text-right' : 'text-left'} shadow-[0_4px_6px_-4px_rgba(0,0,0,0.1),0_10px_15px_-3px_rgba(0,0,0,0.1)]`}>
+    <div className={`timeline-card bg-white rounded-2xl p-6 w-full shadow-lg ${
+      side === 'left' 
+        ? 'md:text-right' 
+        : 'md:text-left'
+    }`}>
       {/* Year */}
       <div className="mb-3 md:mb-2">
-        <span className="text-4xl font-bold text-blue-600 md:text-2xl">{year}</span>
+        <span className="text-4xl font-bold text-blue-600 md:text-3xl">{year}</span>
       </div>
 
       {/* Title */}
-      <h3 className="text-lg font-bold text-slate-900 md:text-xl md:font-semibold">
+      <h3 className="text-xl font-bold text-slate-900 mb-2">
         {title}
       </h3>
 
       {/* Description */}
-      <p className="mt-2 text-base leading-relaxed text-slate-500 md:text-sm">
+      <p className="text-base leading-relaxed text-slate-600">
         {description}
       </p>
     </div>
   );
 
   return (
-    <section ref={containerRef} className="journey-section relative w-full px-6 py-20 overflow-hidden">
+    <section ref={containerRef} className="journey-section relative w-full px-6 py-20 overflow-hidden bg-transparent">
+      {/* Background Vector - Desktop */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 hidden md:block">
+        <svg
+          className="w-full h-full"
+          viewBox="0 0 1341 1036"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M953.559 918.092C1176.54 814.147 1312.66 953.054 1352.85 1035.5L1349.72 379.579C1268.29 277.825 1152.42 271.563 1097.62 280.956C1042.81 290.349 983.31 248.081 980.179 223.034C980.179 59.0002 657.093 112.5 643.522 112.5C450.398 119 49.1196 105.6 -11.0004 0V514.207C5.28442 603.124 90.7795 694.233 131.491 728.673C193.081 774.593 341.941 852.343 444.66 795.987C547.38 739.631 620.035 793.378 643.522 827.296C741.231 990.102 890.926 955.663 953.559 918.092Z"
+            fill="#EFFEEF"
+          />
+        </svg>
+      </div>
+
+      {/* Background Vector - Mobile */}
+      <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 md:hidden">
+        <svg
+          width="100%"
+          height="503"
+          viewBox="0 0 377 503"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M244.307 445.968C318.205 395.476 363.318 462.951 376.638 503V185C349.653 135.573 310.213 131.913 292.05 136.476C273.887 141.038 254.167 120.507 253.129 108.34C253.129 28.6596 146.054 54.6477 141.556 54.6477C77.5519 57.805 20.5623 51.2958 0.637695 0V250.5C0.637695 294.5 -5.8623 321.5 22.6377 348C42.1377 360 51.0479 360.182 94.1377 353C124.138 348 133.772 385.388 141.556 401.864C173.938 480.948 223.549 464.218 244.307 445.968Z"
+            fill="#EFFEEF"
+          />
+        </svg>
+      </div>
 
       <div className="relative z-10 max-w-5xl mx-auto">
         {/* Section Header */}
@@ -207,13 +243,13 @@ const JourneySection = () => {
           <div className="timeline-line hidden md:block absolute left-1/2 top-0 bottom-0 w-[2px] bg-blue-200 transform -translate-x-1/2" />
 
           {/* Timeline Events */}
-          <div className="space-y-6 md:space-y-12">
+          <div className="space-y-8 md:space-y-16">
             {journeyEvents.map((event, index) => (
               <div key={index} className="timeline-item relative">
                 {/* Desktop Layout */}
                 <div className="items-center hidden md:flex">
                   {/* Left side content */}
-                  <div className={`w-1/2 ${event.side === 'left' ? 'pr-12' : ''}`}>
+                  <div className={`w-1/2 ${event.side === 'left' ? 'pr-8' : 'pr-0'}`}>
                     {event.side === 'left' && (
                       <MilestoneCard
                         year={event.year}
@@ -226,11 +262,11 @@ const JourneySection = () => {
 
                   {/* Center node */}
                   <div className="absolute z-10 transform -translate-x-1/2 left-1/2">
-                    <div className="timeline-dot w-4 h-4 bg-blue-500 border-4 border-white rounded-full shadow-md" />
+                    <div className="timeline-dot w-4 h-4 bg-blue-500 border-4 border-white rounded-full shadow-lg" />
                   </div>
 
                   {/* Right side content */}
-                  <div className={`w-1/2 ${event.side === 'right' ? 'pl-12' : ''}`}>
+                  <div className={`w-1/2 ${event.side === 'right' ? 'pl-8' : 'pl-0'}`}>
                     {event.side === 'right' && (
                       <MilestoneCard
                         year={event.year}

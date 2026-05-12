@@ -177,8 +177,8 @@ const WhyChooseUsSection = () => {
   ];
 
   const stats = [
-    { value: "500+", label: "Projects Completed" },
-    { value: "h", label: "Client Partnerships" },
+    { value: "1000+", label: "Projects Completed" },
+    { value: "Long-term", label: "Client Partnerships" },
     { value: "98%", label: "Client Satisfaction" }
   ];
 

@@ -177,6 +177,35 @@ const ServicesSection = () => {
 
   return (
     <section ref={containerRef} className="relative py-16 md:py-24 services-section">
+      {/* SVG Background Shape - Desktop */}
+      <div className="absolute top-0 left-0 z-0 w-full h-full overflow-hidden pointer-events-none hidden md:block">
+        <svg
+          className="w-full h-full"
+          preserveAspectRatio="none"
+          viewBox="0 0 1340 1036"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M387.29 918.092C164.314 814.147 28.19 953.054 -12 1035.5L-8.86831 379.579C72.5556 277.825 188.428 271.563 243.233 280.956C298.037 290.349 357.539 248.081 360.671 223.034C360.671 59.0002 683.757 112.5 697.327 112.5C890.451 119 1291.73 105.6 1351.85 0V514.207C1335.57 603.124 1250.07 694.233 1209.36 728.673C1147.77 774.593 998.909 852.343 896.189 795.987C793.47 739.631 720.815 793.378 697.327 827.296C599.619 990.102 449.924 955.663 387.29 918.092Z"
+            fill="#EFFAFE"
+          />
+        </svg>
+      </div>
+
+      {/* Mobile SVG Background Shape */}
+      <div className="absolute top-0 left-0 z-0 w-full h-full overflow-hidden pointer-events-none md:hidden">
+        <svg
+          className="w-full h-full"
+          preserveAspectRatio="none"
+          viewBox="0 0 374 503"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M132.331 445.968C58.4331 395.476 13.3196 462.951 0 503V185C26.9851 135.573 66.4248 131.913 84.5878 136.476C102.751 141.038 122.471 120.507 123.509 108.34C123.509 28.6596 230.584 54.6477 235.082 54.6477C299.086 57.805 356.075 51.2958 376 0V250.5C370.603 293.692 367.493 331.271 354 348C333.588 370.306 316.543 380.375 282.5 353C248.457 325.625 242.866 385.388 235.082 401.864C202.699 480.948 153.088 464.218 132.331 445.968Z" fill="#EFFAFE" />
+        </svg>
+      </div>
+
       <div className="relative z-10 flex flex-col justify-center h-full px-4 mx-auto max-w-7xl md:px-8">
         {/* Section Header */}
         <div className="mb-12 text-center md:mb-16">

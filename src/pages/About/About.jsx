@@ -17,9 +17,9 @@ import { ContactCTA } from '@/components';
 const About = () => {
   return (
     <div className="min-h-screen bg-white">
-      {/* Hero Section with SVG Background */}
+      {/* Hero Section with Main SVG Background */}
       <div className="relative">
-        {/* SVG Background Shape - Hidden on mobile */}
+        {/* Main SVG Background Shape - Desktop */}
         <div className="absolute top-0 left-0 z-0 hidden w-full overflow-hidden pointer-events-none md:block">
           <svg
             className="w-full"
@@ -36,7 +36,7 @@ const About = () => {
           </svg>
         </div>
 
-        {/* Mobile SVG Background Shape */}
+        {/* Main SVG Background Shape - Mobile */}
         <div className="absolute top-0 left-0 z-0 w-full overflow-hidden pointer-events-none md:hidden">
           <svg
             width="100%"
@@ -55,74 +55,20 @@ const About = () => {
           <HeroSection />
         </div>
       </div>
+      
       <WhoWeAreSection />
       
-      {/* Journey Section with SVG Background */}
+      {/* Journey Section with Background */}
       <div className="relative">
-        <div className="absolute inset-0 z-0 hidden w-full h-full pointer-events-none md:block mt-60">
-          <svg
-            className="w-full"
-            height="1036"
-            preserveAspectRatio="none"
-            viewBox="0 0 1340 1036"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path d="M945.56 918.092C1168.54 814.147 1304.66 953.054 1344.85 1035.5L1341.72 379.579C1260.29 277.825 1144.42 271.563 1089.62 280.956C1034.81 290.349 975.311 248.081 972.179 223.034C972.179 59.0002 649.093 112.5 635.523 112.5C442.399 119 41.1201 105.6 -18.9999 0V514.207C-2.71509 603.124 82.78 694.233 123.492 728.673C185.082 774.593 333.941 852.343 436.661 795.987C539.38 739.631 612.035 793.378 635.523 827.296C733.232 990.102 882.926 955.663 945.56 918.092Z" fill="#EFFEEF"/>
-          </svg>
-        </div>
-
-        {/* Mobile SVG Background Shape */}
-        <div className="absolute top-0 left-0 z-0 w-full overflow-hidden pointer-events-none md:hidden">
-          <svg width="100%" height="503" viewBox="0 0 374 503" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-            <path d="M243.669 445.968C317.567 395.476 362.68 462.951 376 503V185C349.015 135.573 309.575 131.913 291.412 136.476C273.249 141.038 253.529 120.507 252.491 108.34C252.491 28.6596 145.416 54.6477 140.918 54.6477C76.9142 57.805 19.9247 51.2958 0 0V250.5C5.397 293.692 8.50748 331.271 22 348C42.4118 370.306 59.4573 380.375 93.5 353C127.543 325.625 133.134 385.388 140.918 401.864C173.301 480.948 222.912 464.218 243.669 445.968Z" fill="#EFFEEF"/>
-          </svg>
-        </div>
-
-        <div className="relative z-10">
-          <JourneySection />
-        </div>
+        <JourneySection />
       </div>
-
+      
       <QuoteSection />
       
-      {/* Culture & Quality Section with SVG Background */}
+      {/* Culture & Values + Quality & Compliance Section with Blue Vector Background */}
       <div className="relative">
-        {/* SVG Background Shape */}
-        <div className="absolute  md:-top-28 left-0 z-0 w-full h-[calc(100%+8rem)] md:h-[calc(100%+12rem)] overflow-hidden pointer-events-none hidden md:block">
-          <svg
-            className="w-full"
-            height="1036"
-            preserveAspectRatio="none"
-            viewBox="0 0 1341 1036"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M390.44 918.092C167.464 814.147 31.34 953.054 -8.84998 1035.5L-5.71829 379.579C75.7056 277.825 191.578 271.563 246.383 280.956C301.187 290.349 360.689 248.081 363.821 223.034C363.821 59.0002 686.907 112.5 700.477 112.5C893.602 119 1294.88 105.6 1355 0V514.207C1338.72 603.124 1253.22 694.233 1212.51 728.673C1150.92 774.593 1002.06 852.343 899.339 795.987C796.62 739.631 723.965 793.378 700.477 827.296C602.769 990.102 453.074 955.663 390.44 918.092Z"
-              fill="#EFFAFE"
-            />
-          </svg>
-        </div>
-
-        {/* Mobile SVG Background Shape */}
-        <div className="absolute top-0 left-0 z-0 w-full overflow-hidden pointer-events-none md:hidden">
-            <svg width="100%" height="503" viewBox="0 0 374 503" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
-                <path d="M132.331 445.968C58.4331 395.476 13.3196 462.951 0 503V185C26.9851 135.573 66.4248 131.913 84.5878 136.476C102.751 141.038 122.471 120.507 123.509 108.34C123.509 28.6596 230.584 54.6477 235.082 54.6477C299.086 57.805 356.075 51.2958 376 0V250.5C370.603 293.692 367.493 331.271 354 348C333.588 370.306 316.543 380.375 282.5 353C248.457 325.625 242.866 385.388 235.082 401.864C202.699 480.948 153.088 464.218 132.331 445.968Z" fill="#EFFAFE"/>
-            </svg>
-        </div>
-
-        {/* Content Sections */}
-        <div className="relative z-10">
-          <CultureValuesSection />
-          <QualityComplianceSection />
-        </div>
-      </div>
-
-      {/* Clients & Partners Section with SVG Background */}
-      <div className="relative">
-        {/* SVG Background Shape */}
-        <div className="absolute -top-20 md:-top-32 left-0 z-0 w-full h-[calc(100%+5rem)] md:h-[calc(100%+8rem)] overflow-hidden pointer-events-none hidden md:block">
+        {/* SVG Background Shape - Desktop */}
+        <div className="absolute -top-8 md:-top-16 left-0 z-0 w-full h-[calc(100%+2rem)] md:h-[calc(100%+4rem)] overflow-hidden pointer-events-none hidden md:block">
           <svg
             className="w-full"
             height="1036"
@@ -132,8 +78,8 @@ const About = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M945.56 918.092C1168.54 814.147 1304.66 953.054 1344.85 1035.5L1341.72 379.579C1260.29 277.825 1144.42 271.563 1089.62 280.956C1034.81 290.349 975.311 248.081 972.179 223.034C972.179 59.0002 649.093 112.5 635.523 112.5C442.399 119 41.1201 105.6 -18.9999 0V514.207C-2.71509 603.124 82.78 694.233 123.492 728.673C185.082 774.593 333.941 852.343 436.661 795.987C539.38 739.631 612.035 793.378 635.523 827.296C733.232 990.102 882.926 955.663 945.56 918.092Z"
-              fill="#EFFEEF"
+              d="M387.29 918.092C164.314 814.147 28.19 953.054 -12 1035.5L-8.86831 379.579C72.5556 277.825 188.428 271.563 243.233 280.956C298.037 290.349 357.539 248.081 360.671 223.034C360.671 59.0002 683.757 112.5 697.327 112.5C890.451 119 1291.73 105.6 1351.85 0V514.207C1335.57 603.124 1250.07 694.233 1209.36 728.673C1147.77 774.593 998.909 852.343 896.189 795.987C793.47 739.631 720.815 793.378 697.327 827.296C599.619 990.102 449.924 955.663 387.29 918.092Z"
+              fill="#EFFAFE"
             />
           </svg>
         </div>
@@ -142,24 +88,52 @@ const About = () => {
         <div className="absolute top-0 left-0 z-0 w-full overflow-hidden pointer-events-none md:hidden">
           <svg
             width="100%"
-            height="434"
-            viewBox="0 0 374 434"
+            height="503"
+            viewBox="0 0 374 503"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             preserveAspectRatio="none"
           >
-            <path d="M243.669 384.792C317.567 341.226 362.68 399.445 376 434V159.622C349.015 116.975 309.575 113.818 291.412 117.754C273.249 121.691 253.529 103.976 252.491 93.4784C252.491 24.7282 145.416 47.1513 140.918 47.1513C76.9142 49.8755 19.9247 44.2592 0 0V216.137C5.397 253.404 8.50748 285.828 22 300.262C42.4118 319.508 59.4573 328.197 93.5 304.577C127.543 280.957 133.134 332.521 140.918 346.737C173.301 414.973 222.912 400.538 243.669 384.792Z" fill="#EFFEEF"/>
+            <path d="M132.331 445.968C58.4331 395.476 13.3196 462.951 0 503V185C26.9851 135.573 66.4248 131.913 84.5878 136.476C102.751 141.038 122.471 120.507 123.509 108.34C123.509 28.6596 230.584 54.6477 235.082 54.6477C299.086 57.805 356.075 51.2958 376 0V250.5C370.603 293.692 367.493 331.271 354 348C333.588 370.306 316.543 380.375 282.5 353C248.457 325.625 242.866 385.388 235.082 401.864C202.699 480.948 153.088 464.218 132.331 445.968Z" fill="#EFFAFE" />
           </svg>
         </div>
 
         {/* Content Sections */}
         <div className="relative z-10">
-          <OurOfficeSection />
-          <ClientsSection />
-          <PartnersSection />
-          <TestimonialsSection />
+          <CultureValuesSection />
+          <QualityComplianceSection />
         </div>
       </div>
+      
+      <OurOfficeSection />
+      
+      {/* Clients & Partners Section with Green Vector Background (Desktop Only) */}
+      <div className="relative">
+        {/* Green SVG Background - Desktop Only */}
+        <div className="absolute -top-8 md:-top-16 left-0 z-0 w-full h-[calc(100%+2rem)] md:h-[calc(100%+4rem)] overflow-hidden pointer-events-none hidden md:block">
+          <svg
+            className="w-full transform scale-x-[-1]"
+            height="1036"
+            preserveAspectRatio="none"
+            viewBox="0 0 1341 1036"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M390.44 918.092C167.464 814.147 31.34 953.054 -8.84998 1035.5L-5.71829 379.579C75.7056 277.825 191.578 271.563 246.383 280.956C301.187 290.349 360.689 248.081 363.821 223.034C363.821 59.0002 686.907 112.5 700.477 112.5C893.602 119 1294.88 105.6 1355 0V514.207C1338.72 603.124 1253.22 694.233 1212.51 728.673C1150.92 774.593 1002.06 852.343 899.339 795.987C796.62 739.631 723.965 793.378 700.477 827.296C602.769 990.102 453.074 955.663 390.44 918.092Z"
+              fill="#EFFEEF"
+            />
+          </svg>
+        </div>
+
+        {/* Content Sections */}
+        <div className="relative z-10">
+          <ClientsSection />
+          <PartnersSection />
+        </div>
+      </div>
+      
+      <TestimonialsSection />
       <CTASection />
       <ContactCTA />
     </div>

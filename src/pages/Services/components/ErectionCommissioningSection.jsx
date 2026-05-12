@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Wrench, HardHat, ClipboardCheck, Shield, CheckCircle, MonitorPlay, Headphones, FileText, Settings } from 'lucide-react';
+import { Wrench, HardHat, ClipboardCheck, Shield, CheckCircle, ShieldCheck, RotateCw, Clock, Settings } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -191,7 +191,10 @@ const ErectionCommissioningSection = () => {
                 <p className="font-semibold text-[#1a1f36] text-sm mb-3">What We Do:</p>
                 <ul className="space-y-2">
                   {card.items.map((item, itemIndex) => (
-                    <li key={itemIndex} className="flex items-start gap-2">
+                    <li 
+                      key={itemIndex} 
+                      className={`flex items-start gap-2 ${itemIndex === 3 ? 'hidden md:flex' : ''}`}
+                    >
                       <CheckCircle className="w-4 h-4 text-[#f97316] flex-shrink-0 mt-0.5" />
                       <span className="text-sm text-gray-600">{item}</span>
                     </li>

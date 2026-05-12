@@ -5,6 +5,10 @@ import App from './App.jsx';
 import '@/styles/globals.css';
 
 import { AppProvider } from '@/context/AppContext.jsx';
+import { initEmailJS } from '@/lib/emailjs';
+
+// Initialize EmailJS on app start
+initEmailJS();
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
