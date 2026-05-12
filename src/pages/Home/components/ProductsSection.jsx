@@ -106,6 +106,21 @@ const ProductsSection = () => {
 
   return (
     <section ref={containerRef} className="relative py-16 mt-28 products-section">
+      {/* Green Background Vector - Mobile Only */}
+      <div className="absolute inset-0 z-0 pointer-events-none md:hidden">
+        <svg
+          className="w-full h-auto min-h-[462px] object-cover"
+          viewBox="0 0 375 462"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M329.685 445.968C347.5 433.12 366.5 435 375.5 458V142.5C353.359 147.063 341.705 120.507 340.44 108.34C340.44 28.6596 209.912 54.6477 204.429 54.6477C126.407 57.805 24.2887 51.2958 0 0V249.779C6.5791 292.971 17.5 338.5 31.5 358.5C37.1 366.5 82.5895 414.03 124.088 386.655C165.587 359.28 194.94 385.388 204.429 401.864C243.904 480.948 304.381 464.218 329.685 445.968Z"
+            fill="#EFFEEF"
+          />
+        </svg>
+      </div>
+
       {/* Light Blue Wave Layer */}
       <div className="absolute top-3 left-0 w-full h-[20px] -translate-y-6 md:-translate-y-8 z-0 pointer-events-none">
         {/* Desktop SVG */}
@@ -182,19 +197,30 @@ const ProductsSection = () => {
                 onClick={() => navigate(`/products#${product.slug}`)}
                 className="product-card flex flex-col h-full overflow-hidden bg-white shadow-md rounded-lg w-full sm:w-[calc(50%-12px)] lg:w-[calc(33.333%-16px)] transition-none opacity-0 cursor-pointer"
               >
-                {/* Image */}
+                {/* Image/Video */}
                 <div
                   className="relative w-full overflow-hidden bg-gray-200"
                   style={{ height: '200px' }}
                 >
-                  <img
-                    src={product.image}
-                    alt={product.title}
-                    loading="lazy"
-                    width="400"
-                    height="200"
-                    className="product-image object-cover w-full h-full transition-none"
-                  />
+                  {product.image?.toString().toLowerCase().includes('.mp4') ? (
+                    <video
+                      src={product.image}
+                      className="product-image object-cover w-full h-full transition-none"
+                      autoPlay
+                      muted
+                      loop
+                      playsInline
+                    />
+                  ) : (
+                    <img
+                      src={product.image}
+                      alt={product.title}
+                      loading="lazy"
+                      width="400"
+                      height="200"
+                      className="product-image object-cover w-full h-full transition-none"
+                    />
+                  )}
 
                   {/* Icon Badge */}
                   <div className="absolute z-10 top-3 right-3 product-icon-badge">

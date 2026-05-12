@@ -1,13 +1,15 @@
 import { useRef } from "react";
-import { Building2, Factory, Users } from "lucide-react";
+import { Building2, Factory, Users, ArrowRight } from "lucide-react";
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useNavigate } from "react-router-dom";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const SectorsSection = () => {
   const containerRef = useRef(null);
+  const navigate = useNavigate();
 
   useGSAP(() => {
     const mm = gsap.matchMedia();
@@ -73,7 +75,7 @@ const SectorsSection = () => {
       )
 
         // Cards Staggered Entry
-        .fromTo('.sector-card',
+        .fromTo(['.sector-card', '.sector-btn'],
           {
             y: isDesktop ? 30 : 15,
             opacity: 0
@@ -177,14 +179,23 @@ const SectorsSection = () => {
                 </p>
               </div>
             );
-          })}
-        </div>
-
-        
-
+        })}
       </div>
-    </section>
-  );
+
+      {/* Mobile Explore Button */}
+      <div className="mt-10 mb-2 flex justify-center md:hidden sector-btn opacity-0">
+        <button 
+          onClick={() => navigate('/services')}
+          className="flex items-center gap-2 px-8 py-3.5 bg-[#155DFC] text-white font-bold rounded-xl shadow-lg shadow-blue-200 active:scale-95 transition-all w-full max-w-[280px] justify-center"
+        >
+          Explore Sector Solutions
+          <ArrowRight className="w-5 h-5" />
+        </button>
+      </div>
+
+    </div>
+  </section>
+);
 };
 
 export default SectorsSection;

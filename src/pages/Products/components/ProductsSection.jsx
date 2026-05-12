@@ -16,8 +16,6 @@ import {
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
-import productVideo from '@/assets/vedioes/KSP_SWimming Pool (1).mp4';
-import { Play } from 'lucide-react';
 import ProductsData from '@/data/ProductsData';
 
 gsap.registerPlugin(ScrollTrigger);
@@ -37,15 +35,11 @@ const iconMap = {
   'settings': Settings,
 };
 
-
-
-
-
-
 const ProductSection = ({ product }) => {
   const containerRef = useRef(null);
   const IconComponent = iconMap[product.headerIcon.type] || Droplets;
   const { sections, svg: svgDirection } = product;
+  const isVideo = product.image?.toString().toLowerCase().includes('.mp4');
 
   const { contextSafe } = useGSAP(() => {
     const mm = gsap.matchMedia();
@@ -56,7 +50,7 @@ const ProductSection = ({ product }) => {
     const headerIcon = containerRef.current.querySelector('.header-icon');
     const headerTitle = containerRef.current.querySelector('.header-title');
     const headerSubtitle = containerRef.current.querySelector('.header-subtitle');
-    const videoCard = containerRef.current.querySelector('.video-showcase-card');
+    const mediaCard = containerRef.current.querySelector('.media-showcase-card');
     const cards = gsap.utils.toArray('.info-card');
     const processSection = containerRef.current.querySelector('.process-section-container');
     const processTitle = containerRef.current.querySelector('.process-title');
@@ -69,7 +63,7 @@ const ProductSection = ({ product }) => {
 
     if (prefersReduced) {
       // Reduced Motion: Simple Fades
-      ScrollTrigger.batch([header, videoCard, ...cards, processSection, benefitsCard], {
+      ScrollTrigger.batch([header, mediaCard, ...cards, processSection, benefitsCard], {
         onEnter: (elements) => gsap.to(elements, { opacity: 1, duration: 0.5, stagger: 0.1 }),
         start: "top 85%"
       });
@@ -92,8 +86,8 @@ const ProductSection = ({ product }) => {
       .from(headerIcon, { scale: 0.8, opacity: 0, duration: 0.5, ease: "back.out(1.7)" }, "-=0.6")
       .from([headerTitle, headerSubtitle], { y: 10, opacity: 0, stagger: 0.1, duration: 0.6, ease: "power2.out" }, "-=0.4");
 
-    // Video Card Animation
-    gsap.fromTo(videoCard,
+    // Media Card Animation
+    gsap.fromTo(mediaCard,
       { y: 30, opacity: 0 },
       {
         y: 0,
@@ -101,7 +95,7 @@ const ProductSection = ({ product }) => {
         duration: 0.8,
         ease: "power2.out",
         scrollTrigger: {
-          trigger: videoCard,
+          trigger: mediaCard,
           start: "top 85%",
           toggleActions: "play reverse play reverse"
         }
@@ -242,7 +236,7 @@ const ProductSection = ({ product }) => {
   });
 
   return (
-    <section ref={containerRef} id={product.slug} className="product-section relative py-20 md:mb-36">
+    <section ref={containerRef} id={product.slug} className="product-section relative py-12 md:py-20 md:mb-20">
 
       <div className="relative z-10 px-4 mx-auto max-w-7xl sm:px-6 lg:px-8 ">
         {/* Section Header */}
@@ -265,17 +259,28 @@ const ProductSection = ({ product }) => {
           </p>
         </div>
 
-        {/* Video Showcase Card */}
-        <div className="video-showcase-card relative w-full mb-12 rounded-xl overflow-hidden shadow-2xl opacity-0 group/video cursor-pointer">
+        {/* Media (Video/Image) Showcase Card */}
+        <div className="media-showcase-card relative w-full mb-12 rounded-xl overflow-hidden shadow-2xl opacity-0 group/video cursor-pointer">
           <div className="aspect-[21/9] w-full relative">
-            <video
-              src={productVideo}
-              className="w-full h-full object-cover"
-              autoPlay
-              muted
-              loop
-              playsInline
-            />
+            {isVideo ? (
+              <video
+                className="w-full h-full object-cover"
+                autoPlay
+                muted
+                loop
+                playsInline
+                key={product.image}
+              >
+                <source src={product.image} type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
+            ) : (
+              <img
+                src={product.image}
+                alt={product.title}
+                className="w-full h-full object-cover"
+              />
+            )}
           </div>
         </div>
 

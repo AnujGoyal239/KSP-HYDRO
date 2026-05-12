@@ -66,7 +66,27 @@ export { default as Project7 } from './images/Projects/Prj7.png';
 export { default as Project8 } from './images/Projects/Prj8.png';
 export { default as Project9 } from './images/Projects/Prj9.png';
 
+// Equipements
+export { default as Equipement1 } from './images/Equipements/Equipement1.jpeg';
+export { default as Equipement2 } from './images/Equipements/Equipement2.jpeg';
+export { default as Equipement3 } from './images/Equipements/Equipement3.mp4';
+export { default as Equipement4 } from './images/Equipements/Equipement4.jpeg';
+export { default as Equipement5 } from './images/Equipements/Equipement5.png';
+export { default as Equipement6 } from './images/Equipements/Equipement6.jpeg';
+export { default as Equipement7 } from './images/Equipements/Equipement7.mp4';
 
+// New Products Directory
+export { default as Prd1 } from './Products/Prd1.mp4';
+export { default as Prd2 } from './Products/Prd2.jpg';
+export { default as Prd3 } from './Products/Prd3.mp4';
+export { default as Prd4 } from './Products/Prd4.mp4';
+export { default as Prd5 } from './Products/Prd5.mp4';
+export { default as Prd6 } from './Products/Prd6.mp4';
+export { default as Prd7 } from './Products/Prd7.png';
+export { default as Prd8 } from './Products/Prd8.mp4';
+export { default as Prd9 } from './Products/Prd9.mp4';
+export { default as Prd10 } from './Products/Prj10.mp4';
+export { default as Prd11 } from './Products/Prj11.mp4';
 
 export { default as StatsImg2 } from './images/whatsapp.png';
 export { default as StatsImg1 } from './images/telegram.png';

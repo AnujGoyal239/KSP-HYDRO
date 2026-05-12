@@ -51,22 +51,7 @@ const Home = () => {
         </div>
       </div>
 
-      <div className="relative ">
-        {/* Mobile Background SVG */}
-        <div className="absolute top-0 left-0 w-full z-0 md:hidden pointer-events-none overflow-hidden">
-          <svg
-            viewBox="0 0 375 462"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="w-full h-auto min-h-[462px] object-cover"
-          >
-            <path
-              d="M329.685 445.968C347.5 433.12 366.5 435 375.5 458V142.5C353.359 147.063 341.705 120.507 340.44 108.34C340.44 28.6596 209.912 54.6477 204.429 54.6477C126.407 57.805 24.2887 51.2958 0 0V249.779C6.5791 292.971 17.5 338.5 31.5 358.5C37.1 366.5 82.5895 414.03 124.088 386.655C165.587 359.28 194.94 385.388 204.429 401.864C243.904 480.948 304.381 464.218 329.685 445.968Z"
-              fill="#EFFEEF"
-            />
-          </svg>
-        </div>
-
+      <div className="relative">
         <div className="relative z-10">
           <SectionWrapper>
             <ProductsSection />

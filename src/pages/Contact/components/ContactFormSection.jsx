@@ -8,6 +8,7 @@ import { sendEmail, TEMPLATES } from '@/lib/emailjs';
 
 gsap.registerPlugin(ScrollTrigger);
 
+
 const ContactFormSection = () => {
   const containerRef = useRef(null);
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -359,7 +360,9 @@ const ContactFormSection = () => {
                 <h3 className="font-semibold text-[#0A1628] mb-4">Follow Us</h3>
                 <div className="flex gap-3">
                   <a
-                    href="#"
+                    href="https://www.linkedin.com/company/ksphydro/"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     onMouseEnter={handleSocialHover}
                     onMouseLeave={handleSocialLeave}
                     className="w-10 h-10 border border-gray-300 rounded-lg flex items-center justify-center hover:border-[#1E88E5] hover:bg-[#1E88E5]/5 transition-colors"

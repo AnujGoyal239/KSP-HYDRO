@@ -18,13 +18,18 @@ import {
   Layers,
   Activity,
   Wind,
-  Flame,
+  Leaf,
   Settings,
+  ShieldCheck,
+  Globe,
+  Milestone,
+  Beaker,
   Lightbulb,
   Cog,
   Headphones,
   CheckCircle,
-  Briefcase
+  Briefcase,
+  Gauge
 } from 'lucide-react';
 import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
@@ -33,33 +38,26 @@ import { navItems } from '@/data/navigationData';
 
 // Icon mapping for dropdown items
 const iconMap = {
-  // About icons
-  'about': Users,
-  'journey': TrendingUp,
-  'values': Heart,
-  'certification': Award,
-  'clients': Building2,
-  'partner': Handshake,
-  
-  // Product icons
-  'pool': Droplets,
-  'water-treatment': FlaskConical,
-  'sewage': Recycle,
-  'effluent': Filter,
+  about: Users,
+  journey: Milestone,
+  values: Heart,
+  certification: ShieldCheck,
+  clients: Globe,
+  partner: Handshake,
+  pool: Droplets,
+  'water-treatment': Beaker,
+  sewage: Recycle,
+  effluent: Filter,
   'reverse-osmosis': Waves,
-  'lake': Waves,
+  lake: Gauge,
   'ultra-filtration': Layers,
   'membrane-reactor': Activity,
   'fluidized-reactor': Wind,
-  'bio': Flame,
-  'sequencing': Activity,
-  'equipment': Settings,
-  
-  // Service icons
-  'service': Lightbulb,
-  
-  // Project icons
-  'project': Briefcase
+  bio: Droplets,
+  sequencing: Activity,
+  equipment: Settings,
+  project: Briefcase,
+  service: Lightbulb,
 };
 
 const MobileMenu = ({ isOpen, onClose, navLinks, currentPath }) => {
@@ -183,93 +181,50 @@ const MobileMenu = ({ isOpen, onClose, navLinks, currentPath }) => {
   });
 
   return (
-    <div ref={containerRef} className="fixed inset-0 z-[60] flex items-center justify-center lg:hidden">
+    <div ref={containerRef} className="fixed inset-0 z-40 flex items-start justify-center lg:hidden pt-24">
       {/* 1. Full-screen overlay backdrop */}
       <div 
         ref={overlayRef}
-        className="absolute inset-0 bg-black/30 backdrop-blur-md"
+        className="absolute inset-0 bg-transparent"
         onClick={handleClose}
       />
 
       {/* 2. Menu panel (centered card style) */}
       <div 
         ref={panelRef}
-        className="relative w-[92%] max-w-md bg-white shadow-2xl rounded-2xl overflow-hidden max-h-[85vh] flex flex-col"
+        className="relative w-[95%] bg-white shadow-2xl rounded-b-[32px] overflow-hidden max-h-[80vh] flex flex-col border-x border-b border-gray-100"
       >
-        {/* 3. Menu header */}
-        <div className="flex items-center justify-between px-6 pt-6 pb-4 border-b border-gray-100 bg-gradient-to-r from-blue-50 to-white">
-          <div className="flex items-center gap-3">
-            <img src={logo} alt="Logo" className="w-10 h-10 object-contain" />
-            <div>
-              <span className="text-lg font-bold text-gray-900 block">KSP Hydro</span>
-              <span className="text-xs text-gray-500">Engineers</span>
-            </div>
-          </div>
-          <button 
-            ref={closeBtnRef}
-            onClick={handleCloseTap}
-            className="p-2.5 text-gray-500 hover:text-gray-900 rounded-full hover:bg-gray-100 transition-all duration-200 active:scale-95"
-          >
-            <X className="w-6 h-6" />
-          </button>
-        </div>
+        {/* Removed redundant header to avoid "double" branding and keep it simple */}
 
-        {/* 4. Navigation links - Scrollable */}
-        <div className="flex flex-col px-4 py-4 space-y-2 overflow-y-auto flex-1">
+        {/* 4. Navigation links - Centered items without sub-sections */}
+        <div className="flex flex-col px-4 pt-10 pb-6 space-y-4 overflow-y-auto flex-1">
           {navLinks.map((link, i) => (
-            <div key={link.id}>
-              <button
+            <div key={link.id} className="text-center">
+              <Link
+                to={link.path}
                 ref={el => itemsRef.current[i] = el}
-                onClick={(e) => handleLinkTap(e, link)}
-                className={`w-full px-4 py-3.5 text-base font-semibold rounded-xl transition-all duration-200 flex items-center justify-between ${
+                onClick={handleClose}
+                className={`w-full px-4 py-2 text-lg font-medium transition-all duration-200 block ${
                   currentPath === link.path 
-                    ? 'bg-gradient-to-r from-blue-500 to-blue-600 text-white shadow-md' 
-                    : 'text-gray-700 hover:bg-gray-50 active:bg-gray-100'
+                    ? 'text-blue-600 font-bold' 
+                    : 'text-gray-600 hover:text-blue-600'
                 }`}
               >
-                <span>{link.name}</span>
-                {link.dropdown && link.dropdown.length > 0 && (
-                  <ChevronDown 
-                    className={`w-5 h-5 transition-transform duration-300 ${
-                      expandedItem === link.id ? 'rotate-180' : ''
-                    }`}
-                  />
-                )}
-              </button>
-              
-              {/* Dropdown submenu */}
-              {link.dropdown && link.dropdown.length > 0 && (
-                <div 
-                  className={`overflow-hidden transition-all duration-300 ${
-                    expandedItem === link.id ? 'max-h-[500px] opacity-100 mt-2' : 'max-h-0 opacity-0'
-                  }`}
-                >
-                  <div className="bg-gray-50 rounded-xl p-2 space-y-1">
-                    {link.dropdown.map((subItem) => (
-                      <button
-                        key={subItem.id}
-                        onClick={() => handleSubLinkClick(subItem.path)}
-                        className="w-full text-left px-4 py-2.5 text-sm font-medium text-gray-600 hover:text-blue-600 hover:bg-white rounded-lg transition-all duration-200 active:scale-98"
-                      >
-                        {subItem.label}
-                      </button>
-                    ))}
-                  </div>
-                </div>
-              )}
+                {link.name}
+              </Link>
             </div>
           ))}
         </div>
 
         {/* 5. Primary CTA button */}
-        <div className="px-6 py-4 border-t border-gray-100 bg-gray-50">
+        <div className="px-10 pb-8 pt-2 bg-white">
           <Link
             to="/contact"
             ref={ctaRef}
             onClick={handleCtaTap}
-            className="block w-full py-4 text-center text-white bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl font-bold shadow-lg hover:shadow-xl hover:from-blue-700 hover:to-blue-800 transition-all duration-200 active:scale-98"
+            className="block w-full py-3 text-center text-white bg-blue-600 rounded-xl text-sm font-bold shadow-lg hover:bg-blue-700 transition-all duration-200 active:scale-98"
           >
-            Contact Us
+            Contact
           </Link>
         </div>
       </div>
@@ -356,11 +311,13 @@ const Header = () => {
               alt="KSP Hydro Engineers Logo" 
               className="object-contain w-10 h-10"
             />
-            <div className="hidden sm:block">
-              <span className="text-base font-bold text-gray-900 lg:text-lg block leading-tight">
+            <div className="flex flex-col">
+              <span className="text-sm font-bold text-gray-900 sm:text-base lg:text-lg block leading-tight">
                 KSP Hydro Engineers
               </span>
-              <span className="text-xs text-gray-500">Pavati Beyond Imagination</span>
+              <span className="hidden sm:block text-[10px] text-gray-500 lg:text-xs">
+                Pavati Beyond Imagination
+              </span>
             </div>
           </Link>
 
@@ -370,19 +327,24 @@ const Header = () => {
               <div
                 key={link.id}
                 className="relative"
-                onMouseEnter={() => link.dropdown && handleMouseEnter(link.id)}
-                onMouseLeave={handleMouseLeave}
               >
-                <Link
-                  to={link.path}
-                  className={`px-5 py-2 text-sm font-semibold transition-all duration-200 rounded-lg nav-content-item flex items-center gap-1 ${
-                    isActive(link.path)
-                      ? 'text-blue-600'
-                      : 'text-gray-700 hover:text-blue-600'
-                  }`}
-                >
-                  {link.name}
-                </Link>
+                  <Link
+                    to={link.path}
+                    key={link.id}
+                    className={`nav-link text-sm font-semibold transition-all duration-300 relative py-2 px-4 block ${
+                      isActive(link.path) || activeDropdown === link.id
+                        ? 'text-blue-600'
+                        : 'text-gray-700 hover:text-blue-600'
+                    }`}
+                    onMouseEnter={() => handleMouseEnter(link.id)}
+                    onMouseLeave={handleMouseLeave}
+                    onClick={() => setActiveDropdown(null)}
+                  >
+                    {link.name}
+                    {(isActive(link.path) || activeDropdown === link.id) && (
+                      <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600 rounded-full" />
+                    )}
+                  </Link>
               </div>
             ))}
             
@@ -397,45 +359,50 @@ const Header = () => {
 
           {/* Mobile Menu Button - Hamburger */}
           <button
-            onClick={() => setIsMenuOpen(true)}
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
             className="p-2.5 text-gray-700 lg:hidden hover:text-blue-600 hover:bg-blue-50 rounded-full transition-all duration-200 nav-content-item active:scale-95"
-            aria-label="Open menu"
+            aria-label={isMenuOpen ? "Close menu" : "Open menu"}
           >
-            <Menu className="w-6 h-6" />
+            {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
         </div>
 
         {/* Global Dropdown Panel - Below Navbar */}
         {activeDropdownData && activeDropdownData.dropdown && (
           <div
-            className="absolute left-1/2 -translate-x-1/2 mt-0 hidden lg:block"
+            className="absolute left-1/2 -translate-x-1/2 mt-0 hidden lg:block z-50 transition-all duration-300"
             onMouseEnter={() => handleMouseEnter(activeDropdownData.id)}
             onMouseLeave={handleMouseLeave}
           >
-            <div className={`bg-white/95 backdrop-blur-sm rounded-3xl shadow-xl border border-gray-100 overflow-hidden transition-all duration-300 ${
+            <div className={`bg-white rounded-[32px] shadow-[0_40px_80px_-20px_rgba(0,0,0,0.15)] border border-gray-100 overflow-hidden ${
+              activeDropdownData.id === 1 || activeDropdownData.id === 2 ? 'w-[95vw] max-w-[1100px]' : 'w-auto min-w-[380px]'
+            } ${
               activeDropdown === activeDropdownData.id
                 ? 'opacity-100 visible translate-y-0'
                 : 'opacity-0 invisible -translate-y-4 pointer-events-none'
             }`}>
-              <div className="px-20 py-10">
+              <div className="px-8 py-8">
                 {/* Different layouts based on dropdown type */}
                 <div className={`${
                   activeDropdownData.id === 1 // Products
-                    ? 'grid grid-cols-4 gap-5' 
+                    ? 'grid grid-cols-5 gap-4' 
                     : activeDropdownData.id === 2 // Projects
-                    ? 'grid grid-cols-3 gap-5'
-                    : 'grid grid-cols-2 gap-5' // About, Services
-                }`}>
-                  {activeDropdownData.dropdown.map((item) => {
-                    const IconComponent = iconMap[item.icon] || Briefcase;
-                    return (
+                    ? 'grid grid-cols-5 gap-4'
+                    : 'grid grid-cols-2 gap-4' // About, Services
+                } mx-auto`}>
+                    {activeDropdownData.dropdown.map((item, index) => {
+                      const IconComponent = iconMap[item.icon] || Briefcase;
+                      
+                      return (
                       <button
                         key={item.id}
                         onClick={() => handleDropdownItemClick(item.path)}
-                        className="px-8 py-3.5 text-sm font-medium text-gray-600 hover:text-blue-600 bg-gray-50/50 hover:bg-blue-50 border border-gray-200 hover:border-blue-300 rounded-xl transition-all duration-200 flex items-center justify-start gap-3.5 group shadow-sm hover:shadow-md w-full"
+                        className="px-4 py-3.5 text-[13px] font-semibold transition-all duration-300 rounded-xl flex items-center justify-start gap-3 group border-2 w-full bg-white border-gray-50 text-gray-600 hover:border-blue-100 hover:text-blue-600 shadow-[0_2px_10px_-2px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_20px_-5px_rgba(0,0,0,0.08)]"
                       >
-                        <IconComponent className="w-5 h-5 text-gray-400 group-hover:text-blue-600 transition-colors duration-200 flex-shrink-0" />
-                        <span className="text-left leading-snug whitespace-nowrap">{item.label}</span>
+                        <div className="p-1.5 rounded-lg transition-colors duration-300 bg-gray-50 text-gray-400 group-hover:bg-blue-50 group-hover:text-blue-500">
+                          <IconComponent className="w-4 h-4 flex-shrink-0" />
+                        </div>
+                        <span className="text-left leading-tight block flex-1">{item.label}</span>
                       </button>
                     );
                   })}

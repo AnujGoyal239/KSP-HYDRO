@@ -5,13 +5,6 @@ const WhyJoinSection = () => {
   return (
     <section className="py-16 md:py-24 px-6 relative overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Careers Heading with Full-Width Lines */}
-        <div className="flex items-center justify-center mb-12 gap-4">
-          <div className="flex-1 h-px bg-gray-300"></div>
-          <h3 className="text-lg md:text-xl font-semibold text-blue-600 whitespace-nowrap px-2">Careers</h3>
-          <div className="flex-1 h-px bg-gray-300"></div>
-        </div>
-
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] tracking-tight">{whyJoinData.title}</h2>
         </div>

@@ -36,7 +36,7 @@ const Career = () => {
       </div>
 
       <CultureSection />
-      
+
       {/* Why Join Section with Green Background */}
       <div className="relative overflow-hidden">
         {/* Desktop Background SVG */}

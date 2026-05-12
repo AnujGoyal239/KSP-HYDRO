@@ -206,8 +206,8 @@ const OperationMaintenanceSection = () => {
           ))}
         </div>
 
-        {/* AMC Benefits Section */}
-        <div className="p-8 shadow-sm bg-gray-50 rounded-lg lg:p-12">
+        {/* AMC Benefits Section - Hidden on Mobile */}
+        <div className="hidden p-8 shadow-sm bg-gray-50 rounded-lg md:block lg:p-12">
           <h3 className="mb-10 text-2xl font-bold text-center text-slate-900">
             AMC Benefits Section
           </h3>

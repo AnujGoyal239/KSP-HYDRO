@@ -248,13 +248,13 @@ const HeroSection = () => {
   }, [activeCategory]); // Re-run when activeCategory changes
 
   return (
-    <section ref={containerRef} className="products-section relative pt-60 pb-28 overflow-hidden min-h-[80vh] flex items-center">
+    <section ref={containerRef} className="products-section relative pt-40 pb-12 md:pt-60 md:pb-28 overflow-hidden min-h-[50vh] md:min-h-[80vh] flex items-center">
       {/* Background wave image */}
 
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         {/* Hero Content */}
-        <div className="text-center mb-20">
+        <div className="text-center mb-10 md:mb-20">
           <h1 className="products-title text-4xl md:text-5xl lg:text-6xl font-bold text-[#0A1628] mb-6">
             Our Products
           </h1>
@@ -263,8 +263,8 @@ const HeroSection = () => {
           </p>
         </div>
 
-        {/* Category Pills */}
-        <div className="flex flex-wrap justify-center gap-4 mt-auto">
+        {/* Category Pills - Hidden on Mobile */}
+        <div className="hidden md:flex flex-wrap justify-center gap-4 mt-auto">
           {categories.map((category, index) => (
             <button
               key={index}

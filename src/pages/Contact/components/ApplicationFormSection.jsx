@@ -1,10 +1,36 @@
-import React from 'react';
-import { User, Mail, Phone, Briefcase, MessageSquare, Send } from 'lucide-react';
+import { useState } from 'react';
+import { User, Mail, Phone, Briefcase, MessageSquare, Send, Loader2 } from 'lucide-react';
+import { useToast } from '@/hooks/useToast';
+import { sendEmail, TEMPLATES } from '@/lib/emailjs';
 
 const ApplicationFormSection = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const { success, error } = useToast();
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (isSubmitting) return;
+
+    setIsSubmitting(true);
+    const formData = new FormData(e.target);
+    const data = Object.fromEntries(formData.entries());
+
+    try {
+      const result = await sendEmail(data, TEMPLATES.CAREERS);
+      if (result.success) {
+        success(result.message);
+        e.target.reset();
+      }
+    } catch (err) {
+      error(err.message);
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
-    <section className="py-16 px-6 bg-white relative">
-      <div className="max-w-6xl mx-auto relative z-10">
+    <section className="py-8 md:py-12 px-6">
+      <div className="max-w-6xl mx-auto">
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4">How to Apply</h2>
@@ -49,16 +75,19 @@ const ApplicationFormSection = () => {
 
         {/* Application Form Card */}
         <div className="max-w-3xl mx-auto bg-white rounded-xl border border-gray-100 shadow-[0_10px_40px_-15px_rgba(0,0,0,0.06)] p-6 md:p-10">
-          <form className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             {/* Row 1: Full Name */}
             <div className="space-y-2">
-              <label className="text-xs font-bold text-[#1E293B]">Full Name *</label>
+              <label className="text-xs font-bold text-[#1E293B]">Full Name <span className="text-red-500">*</span></label>
               <div className="relative">
                 <User className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                <input 
-                  type="text" 
+                <input
+                  type="text"
+                  name="user_name"
+                  required
+                  disabled={isSubmitting}
                   placeholder="Enter your full name"
-                  className="w-full pl-12 pr-4 py-3 bg-gray-50/50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 focus:bg-white transition-all text-[13px] text-gray-700 placeholder:text-gray-400"
+                  className="w-full pl-12 pr-4 py-3 bg-gray-50/50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 focus:bg-white transition-all text-[13px] text-gray-700 placeholder:text-gray-400 disabled:bg-gray-50 disabled:text-gray-400 disabled:cursor-not-allowed"
                 />
               </div>
             </div>
@@ -66,24 +95,30 @@ const ApplicationFormSection = () => {
             {/* Row 2: Email & Phone */}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
               <div className="space-y-2">
-                <label className="text-xs font-bold text-[#1E293B]">Email Address *</label>
+                <label className="text-xs font-bold text-[#1E293B]">Email Address <span className="text-red-500">*</span></label>
                 <div className="relative">
                   <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                  <input 
-                    type="email" 
+                  <input
+                    type="email"
+                    name="user_email"
+                    required
+                    disabled={isSubmitting}
                     placeholder="your.email@example.com"
-                    className="w-full pl-12 pr-4 py-3 bg-gray-50/50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 focus:bg-white transition-all text-[13px] text-gray-700 placeholder:text-gray-400"
+                    className="w-full pl-12 pr-4 py-3 bg-gray-50/50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 focus:bg-white transition-all text-[13px] text-gray-700 placeholder:text-gray-400 disabled:bg-gray-50 disabled:text-gray-400 disabled:cursor-not-allowed"
                   />
                 </div>
               </div>
               <div className="space-y-2">
-                <label className="text-xs font-bold text-[#1E293B]">Phone Number *</label>
+                <label className="text-xs font-bold text-[#1E293B]">Phone Number <span className="text-red-500">*</span></label>
                 <div className="relative">
                   <Phone className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                  <input 
-                    type="tel" 
-                    placeholder="+91 81071 44617"
-                    className="w-full pl-12 pr-4 py-3 bg-gray-50/50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 focus:bg-white transition-all text-[13px] text-gray-700 placeholder:text-gray-400"
+                  <input
+                    type="tel"
+                    name="user_phone"
+                    required
+                    disabled={isSubmitting}
+                    placeholder="+91 98765 43210"
+                    className="w-full pl-12 pr-4 py-3 bg-gray-50/50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 focus:bg-white transition-all text-[13px] text-gray-700 placeholder:text-gray-400 disabled:bg-gray-50 disabled:text-gray-400 disabled:cursor-not-allowed"
                   />
                 </div>
               </div>
@@ -91,38 +126,52 @@ const ApplicationFormSection = () => {
 
             {/* Row 3: Area of Interest */}
             <div className="space-y-2">
-              <label className="text-xs font-bold text-[#1E293B]">Area of Interest *</label>
+              <label className="text-xs font-bold text-[#1E293B]">Area of Interest <span className="text-red-500">*</span></label>
               <div className="relative">
                 <Briefcase className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-400" />
-                <input 
-                  type="text" 
-                  placeholder=""
-                  className="w-full pl-12 pr-4 py-3 bg-gray-50/50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 focus:bg-white transition-all text-[13px] text-gray-700"
+                <input
+                  type="text"
+                  name="interest"
+                  required
+                  disabled={isSubmitting}
+                  placeholder="e.g. Design Engineering, Operations, Project Execution"
+                  className="w-full pl-12 pr-4 py-3 bg-gray-50/50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 focus:bg-white transition-all text-[13px] text-gray-700 placeholder:text-gray-400 disabled:bg-gray-50 disabled:text-gray-400 disabled:cursor-not-allowed"
                 />
               </div>
             </div>
 
             {/* Row 4: Message */}
             <div className="space-y-2">
-              <label className="text-xs font-bold text-[#1E293B]">Message *</label>
+              <label className="text-xs font-bold text-[#1E293B]">Message <span className="text-red-500">*</span></label>
               <div className="relative">
                 <MessageSquare className="absolute left-4 top-5 w-4 h-4 text-gray-400" />
-                <textarea 
+                <textarea
+                  name="message"
                   rows={4}
+                  required
+                  disabled={isSubmitting}
                   placeholder="Tell us about your experience, skills, and why you'd like to join KSP Hydro..."
-                  className="w-full pl-12 pr-4 py-4 bg-gray-50/50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 focus:bg-white transition-all text-[13px] text-gray-700 placeholder:text-gray-400 resize-none"
+                  className="w-full pl-12 pr-4 py-4 bg-gray-50/50 border border-gray-200 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500/10 focus:border-blue-500 focus:bg-white transition-all text-[13px] text-gray-700 placeholder:text-gray-400 resize-none disabled:bg-gray-50 disabled:text-gray-400 disabled:cursor-not-allowed"
                 ></textarea>
               </div>
             </div>
 
             {/* Submit Button */}
             <div className="pt-2">
-              <button className="w-full bg-[#1E5FFF] text-white py-3.5 rounded-md font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-100 flex items-center justify-center gap-3 text-sm">
-                <Send className="w-3.5 h-3.5" />
-                Submit Application
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-[#1E5FFF] text-white py-3.5 rounded-md font-bold hover:bg-blue-700 transition-all shadow-lg shadow-blue-100 flex items-center justify-center gap-3 text-sm disabled:opacity-70 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? (
+                  <Loader2 className="w-4 h-4 animate-spin" />
+                ) : (
+                  <Send className="w-3.5 h-3.5" />
+                )}
+                {isSubmitting ? 'Sending Application...' : 'Submit Application'}
               </button>
             </div>
-            
+
             <p className="text-center text-[9px] text-gray-400 uppercase tracking-widest">
               * Required fields
             </p>

@@ -196,7 +196,7 @@ const ServicesSection = () => {
       {/* Mobile SVG Background Shape */}
       <div className="absolute top-0 left-0 z-0 w-full h-full overflow-hidden pointer-events-none md:hidden">
         <svg
-          className="w-full h-full"
+          className="w-full h-500"
           preserveAspectRatio="none"
           viewBox="0 0 374 503"
           fill="none"

@@ -3,7 +3,7 @@ import { Settings, Zap, CheckCircle2, Play } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Product1, Product2, Product3, Product4, Product5, Product6, Product7 } from '@/assets';
+import { Equipement1, Equipement2, Equipement3, Equipement4, Equipement5, Equipement6, Equipement7 } from '@/assets';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,7 +20,7 @@ const equipments = [
       "Corrosion-resistant materials",
       "Low power consumption"
     ],
-    image: Product1,
+    image: Equipement1,
     isReversed: false,
     badgeText: "Product"
   },
@@ -36,7 +36,7 @@ const equipments = [
       "Automated alerts",
       "Cloud connectivity"
     ],
-    image: Product2,
+    image: Equipement2,
     isReversed: true,
     badgeText: "Product"
   },
@@ -52,7 +52,7 @@ const equipments = [
       "Predictive maintenance",
       "Energy optimization"
     ],
-    image: Product3,
+    image: Equipement3,
     isReversed: false,
     badgeText: "Video Demo",
     isVideo: true
@@ -69,7 +69,7 @@ const equipments = [
       "Corrosion-resistant construction",
       "Uniform collection"
     ],
-    image: Product4,
+    image: Equipement4,
     isReversed: true,
     badgeText: "Product"
   },
@@ -85,7 +85,7 @@ const equipments = [
       "Automated duty-standby switching",
       "Dry-run protection"
     ],
-    image: Product5,
+    image: Equipement5,
     isReversed: false,
     badgeText: "Product"
   },
@@ -101,7 +101,7 @@ const equipments = [
       "Odor control system",
       "Automated operation"
     ],
-    image: Product6,
+    image: Equipement6,
     isReversed: true,
     badgeText: "Product"
   },
@@ -117,7 +117,7 @@ const equipments = [
       "Low chemical consumption",
       "Automated sludge removal"
     ],
-    image: Product7,
+    image: Equipement7,
     isReversed: false,
     badgeText: "Video Demo",
     isVideo: true
@@ -126,6 +126,7 @@ const equipments = [
 
 const EquipmentItem = ({ equip }) => {
   const itemRef = useRef(null);
+  const isVideo = equip.image?.toString().toLowerCase().includes('.mp4');
 
   useGSAP(() => {
     const tl = gsap.timeline({
@@ -152,26 +153,33 @@ const EquipmentItem = ({ equip }) => {
 
   return (
     <div ref={itemRef} className={`flex flex-col ${equip.isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'} items-center gap-6 lg:gap-10 mb-16 last:mb-0`}>
-      {/* Image Card */}
+      {/* Image/Video Card */}
       <div className="equip-card lg:flex-[0_0_42%] relative w-full">
         <div className="rounded-xl overflow-hidden shadow-lg bg-slate-50 relative">
-          <img 
-            src={equip.image} 
-            alt={equip.title} 
-            className="w-full h-full object-cover aspect-video" 
-          />
+          {isVideo ? (
+            <video 
+              className="w-full h-full object-cover aspect-video"
+              muted
+              autoPlay
+              loop
+              playsInline
+              key={equip.image}
+            >
+              <source src={equip.image} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          ) : (
+            <img 
+              src={equip.image} 
+              alt={equip.title} 
+              className="w-full h-full object-cover aspect-video" 
+            />
+          )}
           <div className="absolute top-4 right-4 z-10">
             <span className="bg-[#0076df] text-white px-4 py-1.5 rounded-md text-xs font-bold shadow-lg">
               {equip.badgeText}
             </span>
           </div>
-          {equip.isVideo && (
-            <div className="absolute inset-0 flex items-center justify-center bg-black/5">
-              <div className="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center shadow-2xl transform transition-transform hover:scale-110 cursor-pointer">
-                <Play className="w-6 h-6 text-[#0076df] fill-[#0076df] ml-0.5" />
-              </div>
-            </div>
-          )}
         </div>
       </div>
 

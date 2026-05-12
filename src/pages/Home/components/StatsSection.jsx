@@ -60,11 +60,11 @@ const StatsSection = () => {
       </div>
 
       {/* Floating Social Buttons */}
-      <div className="absolute right-2 md:right-8 top-1/2 -translate-y-1/2 flex flex-col gap-3 md:gap-4 z-50">
-        <a href="#!" className="social-btn transition-transform hover:scale-110 active:scale-95" aria-label="Telegram">
+      <div className="absolute hidden md:flex right-2 md:right-8 top-1/2 -translate-y-1/2 flex-col gap-3 md:gap-4 z-50">
+        <a href="https://t.me/NaazKSP" target="_blank" rel="noopener noreferrer" className="social-btn transition-transform hover:scale-110 active:scale-95" aria-label="Telegram">
           <img src={StatsImg1} alt="Telegram" className="w-10 h-10 md:w-14 md:h-14 object-contain drop-shadow-md rounded-full" />
         </a>
-        <a href="#!" className="social-btn transition-transform hover:scale-110 active:scale-95" aria-label="WhatsApp">
+        <a href="https://wa.me/917073472044" target="_blank" rel="noopener noreferrer" className="social-btn transition-transform hover:scale-110 active:scale-95" aria-label="WhatsApp">
           <img src={StatsImg2} alt="WhatsApp" className="w-10 h-10 md:w-14 md:h-14 object-contain drop-shadow-md rounded-full" />
         </a>
       </div>

@@ -205,8 +205,8 @@ const ErectionCommissioningSection = () => {
           ))}
         </div>
 
-        {/* Secondary Cards Grid - Handover & Training */}
-        <div className="bg-[#fef7f0] rounded-xl p-8 md:p-12">
+        {/* Secondary Cards Grid - Handover & Training - Hidden on Mobile */}
+        <div className="hidden bg-[#fef7f0] rounded-xl p-8 md:block md:p-12">
           <h3 className="text-xl md:text-2xl font-bold text-[#1a1f36] text-center mb-10">
             Handover & Training
           </h3>

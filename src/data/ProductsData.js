@@ -1,6 +1,5 @@
 import {
-  Product1, Product2, Product3, Product4, Product5,
-  Product6, Product7, Product8, Product9, Product10, Product11
+  Prd1, Prd2, Prd3, Prd4, Prd5, Prd6, Prd7, Prd8, Prd9, Prd10, Prd11
 } from "../assets/";
 
 const ProductsData = [
@@ -8,7 +7,7 @@ const ProductsData = [
     id: "SPR-001",
     slug: "swimming-pool-lake-revival",
     title: "Swimming Pool Systems",
-    image: Product1,
+    image: Prd1,
     homeSubtitle: "Advanced filtration and circulation systems for clean, safe, and hygienic swimming pools",
     subtitle:
       "Advanced filtration and circulation systems for clean, safe, and hygienic swimming pools.",
@@ -48,7 +47,7 @@ const ProductsData = [
     id: "WTP-002",
     slug: "water-treatment-plant",
     title: "Water Treatment Plant (WTP)",
-    image: Product2,
+    image: Prd2,
     homeSubtitle: "Reliable water treatment systems designed to deliver safe, potable water for diverse applications",
     subtitle:
       "Reliable water treatment systems designed to deliver safe, potable water for diverse applications.",
@@ -89,7 +88,7 @@ const ProductsData = [
     id: "STP-003",
     slug: "sewage-treatment-plant",
     title: "Sewage Treatment Plant (STP)",
-    image: Product3,
+    image: Prd3,
     homeSubtitle: "Efficient sewage treatment solutions for safe discharge or reuse of treated wastewater",
     subtitle:
       "Efficient sewage treatment solutions for safe discharge or reuse of treated wastewater.",
@@ -130,7 +129,7 @@ const ProductsData = [
     id: "ETP-004",
     slug: "effluent-treatment-plant",
     title: "Effluent Treatment Plant (ETP)",
-    image: Product4,
+    image: Prd4,
     homeSubtitle: "Industrial effluent treatment systems designed to handle complex wastewater streams",
     subtitle:
       "Industrial effluent treatment systems designed to handle complex wastewater streams.",
@@ -171,7 +170,7 @@ const ProductsData = [
     id: "RO-005",
     slug: "industrial-reverse-osmosis",
     title: "Reverse Osmosis (RO) Systems",
-    image: Product5,
+    image: Prd5,
     homeSubtitle: "Efficient RO systems for delivering safe drinking water and high-purity industrial water",
     subtitle:
       "Efficient RO systems for delivering safe drinking water and high-purity industrial water.",
@@ -211,7 +210,7 @@ const ProductsData = [
     id: "LRWB-006",
     slug: "lake-revival-water-body-aeration",
     title: "Lake Revival & Water Body Aeration Systems",
-    image: Product6,
+    image: Prd6,
     homeSubtitle: "Effective aeration and treatment solutions for restoring and maintaining healthy water bodies",
     subtitle:
       "Effective aeration and treatment solutions for restoring and maintaining healthy water bodies.",
@@ -252,7 +251,7 @@ const ProductsData = [
     id: "DRO-007",
     slug: "domestic-ro-systems",
     title: "Domestic RO Systems",
-    image: Product7,
+    image: Prd7,
     homeSubtitle: "Compact RO systems for safe and reliable drinking water",
     subtitle: "Compact RO systems for safe and reliable drinking water.",
     svg: "right",
@@ -286,7 +285,7 @@ const ProductsData = [
     id: "UF-008",
     slug: "ultra-filtration-systems",
     title: "Ultra Filtration (UF) Systems",
-    image: Product8,
+    image: Prd8,
     homeSubtitle: "UF systems using membrane filtration to remove bacteria, turbidity, and suspended particles",
     subtitle:
       "UF systems using membrane filtration to remove bacteria, turbidity, and suspended particles.",
@@ -326,7 +325,7 @@ const ProductsData = [
     id: "MBR-009",
     slug: "membrane-bio-reactor",
     title: "Membrane Bio Reactor (MBR)",
-    image: Product9,
+    image: Prd9,
     homeSubtitle: "Advanced sewage treatment with superior effluent quality and minimal footprint",
     subtitle:
       "Advanced sewage treatment with superior effluent quality and minimal footprint.",
@@ -366,7 +365,7 @@ const ProductsData = [
     id: "MBBR-010",
     slug: "moving-bed-bio-reactor",
     title: "Bio-Activated HD Reactor (B-HD-R)",
-    image: Product10,
+    image: Prd10,
     homeSubtitle: "Hybrid biological treatment system",
     subtitle: "Hybrid biological treatment system.",
     svg: "left",
@@ -405,7 +404,7 @@ const ProductsData = [
     id: "FMBR-011",
     slug: "fluidized-media-bio-reactor",
     title: "Fluidized Media Bio Reactor (FMBR)",
-    image: Product11,
+    image: Prd11,
     homeSubtitle: "Compact biological treatment system",
     subtitle:
       "Compact biological treatment system.",
@@ -445,7 +444,7 @@ const ProductsData = [
     id: "SMS-012",
     slug: "specialised-mechanical-systems",
     title: "Sequencing Batch Reactor (SBR)",
-    image: Product11,
+    image: Prd11,
     homeSubtitle: "Batch-based biological treatment system",
     subtitle:
       "Batch-based biological treatment system.",

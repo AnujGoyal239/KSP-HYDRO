@@ -206,8 +206,8 @@ const DesignEngineeringSection = () => {
           ))}
         </div>
 
-        {/* Our Consultancy Process */}
-        <div className="p-8 bg-white shadow-lg rounded-xl md:p-12">
+        {/* Our Consultancy Process - Hidden on Mobile */}
+        <div className="hidden p-8 bg-white shadow-lg rounded-xl md:block md:p-12">
           <h3 className="text-2xl md:text-3xl font-bold text-[#1a1f36] text-center mb-12">
             Our Consultancy Process
           </h3>
