@@ -64,14 +64,14 @@ export { default as OtherClient4 } from './images/OtherClientsLogo/ClientLogo4.p
 export { default as OtherClient5 } from './images/OtherClientsLogo/ClientLogo5.png';
 
 export { default as Project1 } from './images/Projects/Prj1.png';
-export { default as Project2 } from './images/Projects/Prj2.png';
-export { default as Project3 } from './images/Projects/Prj3.png';
-export { default as Project4 } from './images/Projects/Prj4.png';
-export { default as Project5 } from './images/Projects/Prj5.png';
-export { default as Project6 } from './images/Projects/Prj6.png';
-export { default as Project7 } from './images/Projects/Prj7.png';
-export { default as Project8 } from './images/Projects/Prj8.png';
-export { default as Project9 } from './images/Projects/Prj9.png';
+export { default as Project2 } from './images/Projects/prj2.png';
+export { default as Project3 } from './images/Projects/prj3.png';
+export { default as Project4 } from './images/Projects/prj4.png';
+export { default as Project5 } from './images/Projects/prj5.png';
+export { default as Project6 } from './images/Projects/prj6.png';
+export { default as Project7 } from './images/Projects/prj7.png';
+export { default as Project8 } from './images/Projects/prj8.png';
+export { default as Project9 } from './images/Projects/prj9.png';
 
 // Equipements
 export { default as Equipement1 } from './images/Equipements/Equipement1.jpeg';
