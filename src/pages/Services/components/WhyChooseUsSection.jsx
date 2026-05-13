@@ -183,7 +183,7 @@ const WhyChooseUsSection = () => {
   ];
 
   return (
-    <section ref={containerRef} className="w-full py-16 lg:py-24">
+    <section id="why-choose-ksp" ref={containerRef} className="w-full py-16 lg:py-24">
       <div className="container px-4 mx-auto lg:px-8">
         {/* Header */}
         <div className="flex flex-col items-center mb-12 text-center">

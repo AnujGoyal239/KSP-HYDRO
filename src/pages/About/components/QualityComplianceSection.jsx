@@ -110,7 +110,7 @@ const QualityComplianceSection = () => {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="quality-section relative w-full px-4 py-24 mt-24 mb-20 overflow-hidden md:px-8 md:py-20">
+    <section id="certifications" ref={containerRef} className="quality-section relative w-full px-4 py-24 mt-24 mb-20 overflow-hidden md:px-8 md:py-20">
 
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-2 lg:gap-16">

@@ -3,31 +3,22 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { 
   Menu, 
   X, 
-  ChevronDown, 
   Users, 
-  TrendingUp, 
   Heart, 
-  Award, 
-  Building2, 
   Handshake,
   Droplets,
-  FlaskConical,
   Recycle,
   Filter,
   Waves,
   Layers,
   Activity,
   Wind,
-  Leaf,
   Settings,
   ShieldCheck,
   Globe,
   Milestone,
   Beaker,
   Lightbulb,
-  Cog,
-  Headphones,
-  CheckCircle,
   Briefcase,
   Gauge
 } from 'lucide-react';
@@ -66,9 +57,6 @@ const MobileMenu = ({ isOpen, onClose, navLinks, currentPath }) => {
   const panelRef = useRef(null);
   const itemsRef = useRef([]);
   const ctaRef = useRef(null);
-  const closeBtnRef = useRef(null);
-  const [expandedItem, setExpandedItem] = useState(null);
-  const navigate = useNavigate();
 
   // Lock body scroll
   useEffect(() => {
@@ -153,31 +141,9 @@ const MobileMenu = ({ isOpen, onClose, navLinks, currentPath }) => {
   }, { scope: containerRef, dependencies: [isOpen] });
 
   // Micro-interactions
-  const handleLinkTap = contextSafe((e, link) => {
-    gsap.to(e.currentTarget, { scale: 0.97, duration: 0.1, yoyo: true, repeat: 1 });
-    
-    // If link has dropdown, toggle it
-    if (link.dropdown && link.dropdown.length > 0) {
-      e.preventDefault();
-      setExpandedItem(expandedItem === link.id ? null : link.id);
-    } else {
-      handleClose(); // Close on link click if no dropdown
-    }
-  });
-
-  const handleSubLinkClick = (path) => {
-    navigate(path);
-    handleClose();
-  };
-
   const handleCtaTap = contextSafe((e) => {
     gsap.to(e.currentTarget, { scale: 0.96, duration: 0.15, yoyo: true, repeat: 1 });
     handleClose(); // Close on CTA click
-  });
-
-  const handleCloseTap = contextSafe((e) => {
-    gsap.to(e.currentTarget, { rotation: 90, duration: 0.2 });
-    handleClose();
   });
 
   return (
@@ -390,7 +356,7 @@ const Header = () => {
                     ? 'grid grid-cols-5 gap-4'
                     : 'grid grid-cols-2 gap-4' // About, Services
                 } mx-auto`}>
-                    {activeDropdownData.dropdown.map((item, index) => {
+                    {activeDropdownData.dropdown.map((item) => {
                       const IconComponent = iconMap[item.icon] || Briefcase;
                       
                       return (

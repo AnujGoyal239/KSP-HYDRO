@@ -1,10 +1,9 @@
-import { Client1, Client2, Client3, Client4, Client5, Client6, Client7, Client8, Client9, Client10, Client11 } from '@/assets';
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import { Client1, Client2, Client3, Client4, Client5, Client6, Client7, Client8, Client9, Client10, Client11, Client12, Client13, Client14, Client15, Client16, Client17, Client18, Client19, Client20 } from '@/assets';
+import { useRef, useEffect, useState, useCallback } from 'react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useEmblaCarousel from 'embla-carousel-react';
-import { Quote } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -13,18 +12,32 @@ const ClientsSection = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: 'center', skipSnaps: false });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const clients = [
-    { id: 1, logo: Client1, name: 'Impact Kerala' },
-    { id: 2, logo: Client2, name: 'RUIDP' },
-    { id: 3, logo: Client3, name: 'Assam Cancer Care Foundation' },
-    { id: 4, logo: Client4, name: 'DCSEM' },
-    { id: 5, logo: Client5, name: 'CPWD' },
-    { id: 6, logo: Client6, name: 'Marriott' },
-    { id: 7, logo: Client7, name: 'Harvest Gold' },
-    { id: 8, logo: Client8, name: 'Avery Dennison' },
-    { id: 9, logo: Client9, name: 'OJI JK Packaging' },
-    { id: 10, logo: Client10, name: 'Tata Communications' },
-    { id: 11, logo: Client11, name: 'The Lalit' },
+  // Row 1 logos (moving right to left)
+  const row1Logos = [
+    { src: Client1, alt: 'Impact Kerala' },
+    { src: Client2, alt: 'RUIDP' },
+    { src: Client3, alt: 'Assam Cancer Care Foundation' },
+    { src: Client4, alt: 'DCSEM' },
+    { src: Client5, alt: 'CPWD' },
+    { src: Client6, alt: 'Marriott' },
+    { src: Client7, alt: 'Harvest Gold' },
+    { src: Client14, alt: 'Client 14' },
+    { src: Client15, alt: 'Client 15' },
+    { src: Client16, alt: 'Client 16' },
+  ];
+
+  // Row 2 logos (moving left to right)
+  const row2Logos = [
+    { src: Client8, alt: 'Avery Dennison' },
+    { src: Client9, alt: 'OJI JK Packaging' },
+    { src: Client10, alt: 'Tata Communications' },
+    { src: Client11, alt: 'The Lalit' },
+    { src: Client12, alt: 'Tata Realty' },
+    { src: Client13, alt: 'NIMS University' },
+    { src: Client17, alt: 'Client 17' },
+    { src: Client18, alt: 'Client 18' },
+    { src: Client19, alt: 'Client 19' },
+    { src: Client20, alt: 'Client 20' },
   ];
 
   const testimonials = [
@@ -88,14 +101,34 @@ const ClientsSection = () => {
 
   useGSAP(() => {
     const mm = gsap.matchMedia();
-    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Selectors
+    const header = '.clients-header';
+    const subtitle = '.clients-subtitle';
+    const note = '.clients-note';
+    const carousel = '.testimonial-carousel-container';
+
+    // Initial States
+    if (!prefersReduced) {
+      gsap.set([header, subtitle, note], { opacity: 0, y: 20 });
+      gsap.set(carousel, { opacity: 0, y: 30 });
+    } else {
+      gsap.set([header, subtitle, note, carousel], { opacity: 0 });
+    }
 
     mm.add({
       isDesktop: "(min-width: 768px)",
-      isMobile: "(max-width: 767px)",
+      isMobile: "(max-width: 767px)"
     }, (context) => {
       const { isDesktop } = context.conditions;
 
+      // Adjust initial Y for mobile
+      if (!prefersReduced && !isDesktop) {
+        gsap.set([header, subtitle, note], { y: 12 });
+      }
+
+      // Main Scroll Timeline
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
@@ -104,63 +137,37 @@ const ClientsSection = () => {
         }
       });
 
-      if (prefersReducedMotion) {
-        tl.to('.clients-header, .client-card, .testimonial-carousel-container', {
+      if (!prefersReduced) {
+        tl.to(header, {
           opacity: 1,
-          duration: 0.5,
-          stagger: 0.1
-        });
-      } else {
-        tl.from('.clients-header', {
-          y: 20,
-          opacity: 0,
-          duration: 0.8,
-          stagger: 0.15,
-          ease: "power2.out"
-        });
-
-        tl.from('.client-wrapper', {
-          y: isDesktop ? 20 : 12,
-          opacity: 0,
-          duration: 0.6,
-          stagger: {
-            amount: 0.8,
-            grid: "auto",
-            from: "start"
-          },
-          ease: "power2.out"
-        }, "-=0.4");
-
-        tl.from('.testimonial-carousel-container', {
-          y: 30,
-          opacity: 0,
+          y: 0,
           duration: 0.8,
           ease: "power2.out"
-        }, "-=0.2");
-      }
-
-      if (isDesktop && !prefersReducedMotion) {
-        const cards = gsap.utils.toArray('.client-card');
-        cards.forEach(card => {
-          const logo = card.querySelector('.client-logo');
-          const hoverTl = gsap.timeline({ paused: true });
-          hoverTl.to(card, {
-            y: -3,
-            borderColor: "rgba(37, 99, 235, 0.3)",
-            boxShadow: "0 10px 25px -5px rgba(0, 0, 0, 0.08)",
-            duration: 0.25,
+        })
+          .to(subtitle, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
             ease: "power2.out"
-          }, 0);
-          if (logo) {
-            hoverTl.to(logo, {
-              scale: 1.05,
-              duration: 0.25,
-              ease: "power2.out"
-            }, 0);
-          }
-          card.addEventListener('mouseenter', () => hoverTl.play());
-          card.addEventListener('mouseleave', () => hoverTl.reverse());
-        });
+          }, "-=0.6")
+          .to(carousel, {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power2.out"
+          }, "-=0.4")
+          .to(note, {
+            opacity: 1,
+            y: 0,
+            duration: 0.8,
+            ease: "power2.out"
+          }, "-=0.4");
+      } else {
+        // Reduced Motion
+        tl.to(header, { opacity: 1, duration: 0.6 })
+          .to(subtitle, { opacity: 1, duration: 0.6 }, "-=0.4")
+          .to(carousel, { opacity: 1, duration: 0.6 }, "-=0.4")
+          .to(note, { opacity: 1, duration: 0.6 }, "-=0.4");
       }
     });
 
@@ -168,6 +175,40 @@ const ClientsSection = () => {
 
   return (
     <section ref={containerRef} className="clients-section relative py-16 overflow-hidden md:py-24">
+      {/* CSS Animations */}
+      <style>{`
+        @keyframes scrollLeft {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        
+        @keyframes scrollRight {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+        
+        .animate-scroll-left {
+          animation: scrollLeft 30s linear infinite;
+        }
+        
+        .animate-scroll-right {
+          animation: scrollRight 30s linear infinite;
+        }
+        
+        .logo-row:hover .animate-scroll-left,
+        .logo-row:hover .animate-scroll-right {
+          animation-play-state: paused;
+        }
+      `}</style>
+
       {/* Background SVG */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <div className="absolute top-0 left-0 w-full md:hidden">
@@ -209,30 +250,83 @@ const ClientsSection = () => {
           <h2 className="clients-header mb-4 text-3xl font-bold text-gray-900 md:text-4xl">
             Our Clients
           </h2>
-          <p className="clients-header max-w-3xl mx-auto text-base text-gray-600">
-            Proud to work with leading organizations across hospitality, government, healthcare, industry, and institutions
+          <p className="clients-subtitle max-w-2xl mx-auto text-base leading-relaxed md:text-lg text-slate-500">
+            Trusted by industry leaders across multiple sectors for reliable and sustainable water solutions
           </p>
         </div>
 
-        {/* Client Logos */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mb-16 md:gap-6 lg:gap-8">
-          {clients.map((client) => (
-            <div key={client.id} className="client-wrapper">
-              <div className="client-card flex items-center justify-center h-24 p-6 bg-white border border-gray-100 shadow-sm rounded-xl md:h-32">
-                <img
-                  src={client.logo}
-                  alt={client.name}
-                  loading="lazy"
-                  width="160"
-                  height="96"
-                  className="client-logo object-contain w-full h-full transition-none"
-                />
-              </div>
+        {/* Logo Rows Container with Infinite Scroll */}
+        <div className="mb-16 space-y-6">
+          {/* Row 1 - Scrolling Right to Left */}
+          <div className="overflow-hidden logo-row">
+            <div className="flex animate-scroll-left w-max">
+              {/* Original logos */}
+              {row1Logos.map((logo, index) => (
+                <div
+                  key={`row1-${index}`}
+                  className="bg-white rounded-xl p-5 shadow-sm w-[160px] h-[120px] md:w-[180px] md:h-[130px] flex items-center justify-center flex-shrink-0 mx-3"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    loading="lazy"
+                    className="object-contain w-full h-full max-w-[140px] max-h-[90px]"
+                  />
+                </div>
+              ))}
+              {/* Duplicated logos for seamless loop */}
+              {row1Logos.map((logo, index) => (
+                <div
+                  key={`row1-dup-${index}`}
+                  className="bg-white rounded-xl p-5 shadow-sm w-[160px] h-[120px] md:w-[180px] md:h-[130px] flex items-center justify-center flex-shrink-0 mx-3"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    loading="lazy"
+                    className="object-contain w-full h-full max-w-[140px] max-h-[90px]"
+                  />
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
+
+          {/* Row 2 - Scrolling Left to Right */}
+          <div className="overflow-hidden logo-row">
+            <div className="flex animate-scroll-right w-max">
+              {/* Original logos */}
+              {row2Logos.map((logo, index) => (
+                <div
+                  key={`row2-${index}`}
+                  className="bg-white rounded-xl p-5 shadow-sm w-[160px] h-[120px] md:w-[180px] md:h-[130px] flex items-center justify-center flex-shrink-0 mx-3"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    loading="lazy"
+                    className="object-contain w-full h-full max-w-[140px] max-h-[90px]"
+                  />
+                </div>
+              ))}
+              {/* Duplicated logos for seamless loop */}
+              {row2Logos.map((logo, index) => (
+                <div
+                  key={`row2-dup-${index}`}
+                  className="bg-white rounded-xl p-5 shadow-sm w-[160px] h-[120px] md:w-[180px] md:h-[130px] flex items-center justify-center flex-shrink-0 mx-3"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    loading="lazy"
+                    className="object-contain w-full h-full max-w-[140px] max-h-[90px]"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
 
-        <p className="clients-header mb-12 text-sm text-center text-gray-500 md:mb-10">
+        <p className="clients-note mb-12 text-sm text-center text-gray-500 md:mb-10">
           <strong>And many more across the world...</strong>
         </p>
 

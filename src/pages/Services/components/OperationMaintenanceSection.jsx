@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { Settings, CalendarCheck, Activity, HeadphonesIcon, CheckCircle, Clock, TrendingUp, Shield, RefreshCw } from 'lucide-react';
+import { useRef } from 'react';
+import { Settings, CheckCircle } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

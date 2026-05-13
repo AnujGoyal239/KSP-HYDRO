@@ -1,5 +1,5 @@
 import { useRef } from 'react';
-import { Factory, Building2, Users, Landmark, Droplets } from 'lucide-react';
+import { Droplets } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -145,7 +145,7 @@ const WhoWeAreSection = () => {
   });
 
   return (
-    <section ref={containerRef} className="who-section relative w-full px-6 py-16 overflow-hidden md:py-24 opacity-0">
+    <section id="who-we-are" ref={containerRef} className="who-section relative w-full px-6 py-16 overflow-hidden md:py-24 opacity-0">
       <div className="relative z-10 mx-auto max-w-7xl">
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-2 lg:gap-16">
 

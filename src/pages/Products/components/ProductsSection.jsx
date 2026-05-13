@@ -38,7 +38,7 @@ const iconMap = {
 const ProductSection = ({ product }) => {
   const containerRef = useRef(null);
   const IconComponent = iconMap[product.headerIcon.type] || Droplets;
-  const { sections, svg: svgDirection } = product;
+  const { sections } = product;
   const isVideo = product.image?.toString().toLowerCase().includes('.mp4');
 
   const { contextSafe } = useGSAP(() => {
@@ -386,7 +386,7 @@ const ProductSection = ({ product }) => {
 const ProductsSection = () => {
   return (
     <>
-      {ProductsData.map((product) => (
+      {ProductsData.filter(product => product.slug !== 'equipment').map((product) => (
         <ProductSection key={product.id} product={product} />
       ))}
     </>

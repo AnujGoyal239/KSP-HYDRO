@@ -1,5 +1,4 @@
-import { useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+
 import {
   HeroSection,
   ProductsSection,
@@ -9,21 +8,7 @@ import {
 import { ContactCTA } from '@/components';
 
 const Products = () => {
-  const { hash } = useLocation();
 
-  useEffect(() => {
-    if (hash) {
-      // Small timeout to ensure DOM is fully rendered
-      setTimeout(() => {
-        const element = document.querySelector(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-      }, 100);
-    } else {
-      window.scrollTo(0, 0);
-    }
-  }, [hash]);
 
   return (
     <div className="relative bg-white">

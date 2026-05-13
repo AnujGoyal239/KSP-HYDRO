@@ -1,5 +1,5 @@
-import React, { useRef } from 'react';
-import { Ban, Search, ClipboardList, Lightbulb, CheckCircle } from 'lucide-react';
+import { useRef } from 'react';
+import { Ban, CheckCircle } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';

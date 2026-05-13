@@ -60,7 +60,7 @@ const ScrollToHashElement = () => {
           console.warn(`Element with id "${elementId}" not found`);
           window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-      }, 100); // 100ms delay for DOM rendering
+      }, 200); // 200ms delay for DOM rendering
 
       // Cleanup timeout on unmount or hash change
       return () => clearTimeout(scrollTimeout);

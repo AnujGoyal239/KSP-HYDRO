@@ -105,7 +105,7 @@ const PartnersSection = () => {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="partners-section relative w-full px-4 py-16 mt-20 overflow-hidden md:px-8 md:py-20">
+    <section id="our-partners" ref={containerRef} className="partners-section relative w-full px-4 py-16 mt-20 overflow-hidden md:px-8 md:py-20">
 
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Section Header */}

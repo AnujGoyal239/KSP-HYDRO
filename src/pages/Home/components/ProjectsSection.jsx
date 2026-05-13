@@ -1,7 +1,6 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { projects } from '@/data/projectsData';
-import { MapPin, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { MapPin } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
