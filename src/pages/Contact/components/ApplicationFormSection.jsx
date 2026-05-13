@@ -36,7 +36,7 @@ const ApplicationFormSection = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-[#0F172A] mb-4">How to Apply</h2>
           <div className="text-gray-500 max-w-2xl mx-auto text-sm leading-relaxed space-y-1">
             <p>
-              "We are always open to connecting with individuals who are passionate about water engineering, sustainability, and execution excellence."
+              We are always open to connecting with individuals who are passionate about water engineering, sustainability, and execution excellence.
             </p>
             <p>
               If you believe your skills and mindset align with KSP Hydro, we&apos;d be happy to hear from you.

@@ -1,8 +1,8 @@
 import { 
-  Ban, Search, ClipboardList, Lightbulb, 
-  Wrench, HardHat, ClipboardCheck, Shield, 
+  Search, ClipboardList, Lightbulb, 
+  HardHat, ClipboardCheck, Shield, 
   Settings, CalendarCheck, Activity, HeadphonesIcon,
-  TrendingUp, Clock, RefreshCw, CheckCircle,
+  TrendingUp, Clock, RefreshCw,
   ShieldCheck, RotateCw
 } from 'lucide-react';
 

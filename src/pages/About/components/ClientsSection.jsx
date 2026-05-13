@@ -110,7 +110,7 @@ const ClientsSection = () => {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="clients-section relative w-full px-4 py-16 overflow-hidden md:px-8 md:py-20">
+    <section id="our-clients" ref={containerRef} className="clients-section relative w-full px-4 py-16 overflow-hidden md:px-8 md:py-20">
       {/* CSS Animations */}
       <style>{`
         @keyframes scrollLeft {

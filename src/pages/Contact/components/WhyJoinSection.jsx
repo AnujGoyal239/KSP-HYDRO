@@ -1,4 +1,3 @@
-import React from 'react';
 import { whyJoinData } from '@/data/contactData';
 
 const WhyJoinSection = () => {

@@ -1,11 +1,12 @@
 import {
-  Prd1, Prd2, Prd3, Prd4, Prd5, Prd6, Prd7, Prd8, Prd9, Prd10, Prd11
+  Prd1, Prd2, Prd3, Prd4, Prd5, Prd6, Prd7, Prd8, Prd9, Prd10, Prd11,
+  Equipement1
 } from "../assets/";
 
 const ProductsData = [
   {
     id: "SPR-001",
-    slug: "swimming-pool-lake-revival",
+    slug: "swimming-pool-systems",
     title: "Swimming Pool Systems",
     image: Prd1,
     homeSubtitle: "Advanced filtration and circulation systems for clean, safe, and hygienic swimming pools",
@@ -168,7 +169,7 @@ const ProductsData = [
 
   {
     id: "RO-005",
-    slug: "industrial-reverse-osmosis",
+    slug: "reverse-osmosis-systems",
     title: "Reverse Osmosis (RO) Systems",
     image: Prd5,
     homeSubtitle: "Efficient RO systems for delivering safe drinking water and high-purity industrial water",
@@ -363,7 +364,7 @@ const ProductsData = [
 
   {
     id: "MBBR-010",
-    slug: "moving-bed-bio-reactor",
+    slug: "bio-activated-hd-reactor",
     title: "Bio-Activated HD Reactor (B-HD-R)",
     image: Prd10,
     homeSubtitle: "Hybrid biological treatment system",
@@ -401,48 +402,8 @@ const ProductsData = [
   },
 
   {
-    id: "FMBR-011",
-    slug: "fluidized-media-bio-reactor",
-    title: "Fluidized Media Bio Reactor (FMBR)",
-    image: Prd11,
-    homeSubtitle: "Compact biological treatment system",
-    subtitle:
-      "Compact biological treatment system.",
-    svg: "right",
-    headerIcon: { type: "flask", bgColor: "#155DFC", iconColor: "#FFFFFF" },
-    sections: {
-      whatItIs: {
-        title: "What It Is",
-        description:
-          "Fluidized bio-media system with MBBR.",
-      },
-      whereItsUsed: {
-        title: "Where It's Used",
-        items: ["Industrial wastewater", "STPs", "Upgrades"],
-      },
-      advantages: {
-        title: "Advantages",
-        items: ["Compact", "Flexible", "Efficient"],
-      },
-      processOverview: {
-        title: "Treatment Process",
-        steps: [
-          "Screening",
-          "Reaction",
-          "Clarification",
-          "Disinfection",
-        ],
-      },
-      keyBenefits: {
-        title: "Key Benefits",
-        items: ["High efficiency", "Handles load variation"],
-      },
-    },
-  },
-
-  {
     id: "SMS-012",
-    slug: "specialised-mechanical-systems",
+    slug: "sequencing-batch-reactor",
     title: "Sequencing Batch Reactor (SBR)",
     image: Prd11,
     homeSubtitle: "Batch-based biological treatment system",
@@ -476,6 +437,46 @@ const ProductsData = [
       keyBenefits: {
         title: "Key Benefits",
         items: ["Space-saving", "Stable performance"],
+      },
+    },
+  },
+
+  {
+    id: "EQP-013",
+    slug: "equipment",
+    title: "Equipments",
+    image: Equipement1,
+    homeSubtitle: "Advanced automation and treatment equipment",
+    subtitle:
+      "Advanced automation and treatment equipment for water and wastewater treatment systems.",
+    svg: "right",
+    headerIcon: { type: "settings", bgColor: "#155DFC", iconColor: "#FFFFFF" },
+    sections: {
+      whatItIs: {
+        title: "What It Is",
+        description:
+          "Specialized equipment and automation systems designed to enhance the efficiency and reliability of water treatment operations.",
+      },
+      whereItsUsed: {
+        title: "Where It's Used",
+        items: ["Water treatment plants", "Wastewater facilities", "Industrial processes", "Municipal systems"],
+      },
+      advantages: {
+        title: "Advantages",
+        items: ["Advanced automation", "High reliability", "Energy efficient", "Easy maintenance"],
+      },
+      processOverview: {
+        title: "Equipment Features",
+        steps: [
+          "Automated control systems",
+          "Monitoring & sensors",
+          "Treatment components",
+          "Quality assurance",
+        ],
+      },
+      keyBenefits: {
+        title: "Key Benefits",
+        items: ["Improved efficiency", "Reduced operational costs", "Enhanced reliability", "Real-time monitoring"],
       },
     },
   },

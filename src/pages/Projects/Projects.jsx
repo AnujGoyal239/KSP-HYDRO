@@ -2,7 +2,7 @@ import { useGSAP } from '@gsap/react';
 import gsap from 'gsap';
 import { useRef } from 'react';
 import { projects, stats, projectsHeroData, projectsListHeader } from '@/data/projectsData';
-import { ArrowRight, MapPin, Activity, Droplets } from 'lucide-react';
+import { MapPin, Activity, Droplets } from 'lucide-react';
 import ContactCTA from '@/components/common/ContactCTA';
 
 const ProjectCard = ({ project }) => {
@@ -151,6 +151,7 @@ const Projects = () => {
               return (
                 <div 
                   key={project.id} 
+                  id={project.slug}
                   className={`project-card ${isLastAndOdd ? 'md:col-span-2 flex justify-center' : ''}`}
                 >
                   <div className={isLastAndOdd ? 'w-full md:max-w-[calc(50%-1.5rem)]' : 'w-full'}>

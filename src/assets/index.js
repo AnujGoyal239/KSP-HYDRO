@@ -46,6 +46,13 @@ export { default as Client10 } from './images/ClientsLogos/ClientsLogo10.png';
 export { default as Client11 } from './images/ClientsLogos/ClientsLogo11.png';
 export { default as Client12 } from './images/ClientsLogos/ClientsLogo12.png';
 export { default as Client13 } from './images/ClientsLogos/ClientsLogo13.png';
+export { default as Client14 } from './images/ClientsLogos/ClientsLogo14.png';
+export { default as Client15 } from './images/ClientsLogos/ClientLogo15.png';
+export { default as Client16 } from './images/ClientsLogos/ClientsLogo16.png';
+export { default as Client17 } from './images/ClientsLogos/ClientsLogo17.png';
+export { default as Client18 } from './images/ClientsLogos/ClientsLogo18.png';
+export { default as Client19 } from './images/ClientsLogos/ClientsLogo19.png';
+export { default as Client20 } from './images/ClientsLogos/ClientsLogo20.png';
 
 
 // Other Clients Logos

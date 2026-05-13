@@ -192,7 +192,7 @@ const JourneySection = () => {
   );
 
   return (
-    <section ref={containerRef} className="journey-section relative w-full px-6 py-20 overflow-hidden bg-transparent">
+    <section id="our-journey" ref={containerRef} className="journey-section relative w-full px-6 py-20 overflow-hidden bg-transparent">
       {/* Background Vector - Desktop (from Why Join KSP Section) */}
       <div className="absolute top-0 left-0 w-full h-full pointer-events-none z-0 hidden md:block">
         <svg

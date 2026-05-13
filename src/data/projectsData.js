@@ -17,6 +17,7 @@ export const projectsListHeader = {
 export const projects = [
   {
     id: 1,
+    slug: "aipl-joy-square",
     title: "AIPL Joy Square",
     location: "Gurugram",
     image: Project1,
@@ -25,6 +26,7 @@ export const projects = [
   },
   {
     id: 2,
+    slug: "avery-dennison",
     title: "Avery Denisson",
     location: "Greater Noida",
     image: Project2,
@@ -33,6 +35,7 @@ export const projects = [
   },
   {
     id: 3,
+    slug: "ernst-young",
     title: "Ernst & Young (E&Y)",
     location: "Gurgaon",
     image: Project3,
@@ -41,6 +44,7 @@ export const projects = [
   },
   {
     id: 4,
+    slug: "sify-data-centre",
     title: "Sify Data Centre",
     location: "Mumbai",
     image: Project4,
@@ -49,6 +53,7 @@ export const projects = [
   },
   {
     id: 5,
+    slug: "iim",
     title: "IIM",
     location: "Vizag",
     image: Project5,
@@ -57,6 +62,7 @@ export const projects = [
   },
   {
     id: 6,
+    slug: "bimbo-group",
     title: "BIMBO Group",
     location: "Kochi",
     image: Project6,
@@ -65,6 +71,7 @@ export const projects = [
   },
   {
     id: 7,
+    slug: "ruidp-hospitals",
     title: "RUIDP Hospitals",
     location: "Rajasthan",
     image: Project7,
@@ -73,6 +80,7 @@ export const projects = [
   },
   {
     id: 8,
+    slug: "tata-realty-eureka",
     title: "Tata Realty Eureka",
     location: "Greater Noida",
     image: Project8,
@@ -81,6 +89,7 @@ export const projects = [
   },
   {
     id: 9,
+    slug: "thapar-house",
     title: "Thapar House",
     location: "New Delhi",
     image: Project9,

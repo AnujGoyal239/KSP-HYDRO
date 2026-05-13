@@ -1,7 +1,6 @@
 import { 
-  Factory, Building2, Users, Landmark, Droplets,
-  CircleDot, Shield, Leaf, TrendingUp, Award,
-  CheckCircle, Globe, Zap, Heart
+  Factory, Building2, Users, Landmark,
+  CircleDot, Shield, Leaf, TrendingUp, Award
 } from 'lucide-react';
 
 export const aboutHeroData = {

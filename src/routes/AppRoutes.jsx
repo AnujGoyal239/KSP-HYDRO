@@ -8,7 +8,6 @@ const Home = lazy(() => import('@/pages/Home/Home.jsx'));
 const About = lazy(() => import('@/pages/About/About.jsx'));
 const Products = lazy(() => import('@/pages/Products/Products.jsx'));
 const Services = lazy(() => import('@/pages/Services/Services.jsx'));
-const Careers = lazy(() => import('@/pages/Careers/Career.jsx'));
 const Contact = lazy(() => import('@/pages/Contact/Contact.jsx'));
 const KnowledgeCenter = lazy(() => import('@/pages/KnowledgeCenter/KnowledgeCenter.jsx'));
 const Projects = lazy(() => import('@/pages/Projects/Projects.jsx'));
@@ -31,7 +30,6 @@ const router = createBrowserRouter(
         { path: '/products', element: <Suspense fallback={<PageLoader />}><Products /></Suspense> },
         { path: '/services', element: <Suspense fallback={<PageLoader />}><Services /></Suspense> },
         { path: '/projects', element: <Suspense fallback={<PageLoader />}><Projects /></Suspense> },
-        { path: '/careers', element: <Suspense fallback={<PageLoader />}><Careers /></Suspense> },
         { path: '/knowledge-center', element: <Suspense fallback={<PageLoader />}><KnowledgeCenter /></Suspense> },
         { path: '/contact', element: <Suspense fallback={<PageLoader />}><Contact /></Suspense> },
         { path: '*', element: <Suspense fallback={<PageLoader />}><NotFound /></Suspense> },

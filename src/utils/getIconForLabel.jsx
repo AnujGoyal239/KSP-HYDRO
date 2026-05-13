@@ -12,10 +12,8 @@ import {
   Award,
   Handshake,
   Building2,
-  HardHat,
   Settings,
-  PenTool,
-  Lightbulb
+  PenTool
 } from 'lucide-react';
 
 /**

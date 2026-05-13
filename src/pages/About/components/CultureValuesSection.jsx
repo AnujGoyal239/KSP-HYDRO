@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { CircleDot, Shield, Leaf, Users, TrendingUp, Award } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
@@ -115,7 +114,7 @@ const CultureValuesSection = () => {
   }, { scope: containerRef });
 
   return (
-    <section ref={containerRef} className="culture-section relative w-full px-4 py-16 overflow-hidden md:px-8 md:py-20">
+    <section id="our-values" ref={containerRef} className="culture-section relative w-full px-4 py-16 overflow-hidden md:px-8 md:py-20">
 
       <div className="relative z-10 max-w-6xl mx-auto">
         {/* Section Header */}

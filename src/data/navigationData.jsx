@@ -123,13 +123,6 @@ export const navItems = [
         icon: "membrane-reactor" 
       },
       { 
-        id: 8, 
-        label: "Fluidized Media Reactor", 
-        path: "/products#fluidized-media-bio-reactor", 
-        sectionId: "fluidized-media-bio-reactor",
-        icon: "fluidized-reactor" 
-      },
-      { 
         id: 9, 
         label: "Bio (B-HD-R)", 
         path: "/products#bio-activated-hd-reactor", 
@@ -142,13 +135,6 @@ export const navItems = [
         path: "/products#sequencing-batch-reactor", 
         sectionId: "sequencing-batch-reactor",
         icon: "sequencing" 
-      },
-      { 
-        id: 11, 
-        label: "Equipment", 
-        path: "/products#equipment", 
-        sectionId: "equipment",
-        icon: "equipment" 
       }
     ]
   },
