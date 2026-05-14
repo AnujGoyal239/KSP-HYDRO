@@ -53,7 +53,7 @@ const TestimonialsSection = () => {
     if (!emblaApi) return;
     onSelect();
     emblaApi.on('select', onSelect);
-    
+
     const intervalId = setInterval(() => {
       emblaApi.scrollNext();
     }, 5000); // 5 seconds gap
@@ -79,17 +79,17 @@ const TestimonialsSection = () => {
 
         {/* Testimonial Carousel */}
         <div className="testimonial-carousel-container relative mt-10" ref={emblaRef}>
-          <div className="flex">
+          <div className="">
             {testimonials.map((testimonial, index) => (
-              <div 
-                key={testimonial.id} 
-                className={`flex-[0_0_90%] md:flex-[0_0_75%] lg:flex-[0_0_70%] px-3 md:px-6 transition-all duration-700 ease-in-out ${
-                  index === selectedIndex ? 'scale-100 opacity-100 z-10' : 'scale-[0.85] opacity-30 z-0'
-                }`}
+              <div
+                key={testimonial.id}
+                className={`flex-[0_0_90%] md:flex lg:flex-[0_0_70%] px-3 md:px-6 transition-all duration-700 ease-in-out ${index === selectedIndex ? 'scale-100 opacity-100 z-10' : 'scale-[0.85] opacity-30 z-0'
+                  }`}
               >
-                <div className="h-full px-8 py-10 md:px-16 md:py-14 bg-white shadow-[0_15px_50px_rgba(0,0,0,0.08)] rounded-lg border border-gray-100 flex gap-4 md:gap-8">
-                  {/* Quote Icon Column */}
-                  <div className="flex-shrink-0 pt-1">
+                <div className="h-full px-8 py-10 md:px-16 md:py-14 bg-white shadow-[0_15px_50px_rgba(0,0,0,0.08)] rounded-lg border border-gray-100 flex flex-col md:flex-row gap-4 md:gap-8">
+
+                  {/* Quote Icon */}
+                  <div className="flex-shrink-0 self-start">
                     <svg
                       className="w-10 h-10 md:w-14 md:h-14 text-[#7FA7F8]"
                       fill="currentColor"
@@ -99,12 +99,12 @@ const TestimonialsSection = () => {
                     </svg>
                   </div>
 
-                  {/* Text and Author Column */}
+                  {/* Text */}
                   <div className="flex flex-col flex-1">
                     <p className="text-base md:text-xl italic leading-relaxed text-[#4B5563] font-medium mb-8 flex-1">
                       {testimonial.content}
                     </p>
-                    
+
                     <div className="mt-auto">
                       <p className="text-sm md:text-base font-bold text-gray-900 mb-0.5">
                         {testimonial.author}
