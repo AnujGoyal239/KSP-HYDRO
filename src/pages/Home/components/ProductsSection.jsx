@@ -204,13 +204,15 @@ const ProductsSection = () => {
                 >
                   {product.image?.toString().toLowerCase().includes('.mp4') ? (
                     <video
-                      src={product.image}
+                      key={product.image}
                       className="product-image object-cover w-full h-full transition-none"
                       autoPlay
                       muted
                       loop
                       playsInline
-                    />
+                    >
+                      <source src={product.image} type="video/mp4" />
+                    </video>
                   ) : (
                     <img
                       src={product.image}
