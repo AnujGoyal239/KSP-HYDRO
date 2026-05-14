@@ -4,15 +4,19 @@ import { MapPin } from 'lucide-react';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { LazyImage } from '@/components/lazy';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const ProjectCard = ({ project }) => (
   <div className="project-card group relative overflow-hidden rounded-lg aspect-video shadow-md transition-all duration-500 hover:shadow-xl opacity-0">
-    <img 
-      src={project.image} 
-      alt={project.title} 
-      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+    <LazyImage
+      src={project.image}
+      alt={project.title}
+      width={600}
+      height={400}
+      className="w-full h-full transition-transform duration-700 group-hover:scale-110"
+      objectFit="cover"
     />
     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-70 transition-opacity duration-500 group-hover:opacity-80" />
     <div className="absolute bottom-0 left-0 p-5 w-full transform transition-transform duration-500">

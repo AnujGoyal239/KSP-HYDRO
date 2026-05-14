@@ -4,16 +4,20 @@ import { useRef } from 'react';
 import { projects, stats, projectsHeroData, projectsListHeader } from '@/data/projectsData';
 import { MapPin, Activity, Droplets } from 'lucide-react';
 import ContactCTA from '@/components/common/ContactCTA';
+import { LazyImage } from '@/components/lazy';
 
 const ProjectCard = ({ project }) => {
   return (
     <div className="group bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm transition-all duration-500 hover:shadow-xl flex flex-col h-full">
       {/* Image Section with Overlay */}
       <div className="relative h-48 overflow-hidden">
-        <img 
-          src={project.image} 
-          alt={project.title} 
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+        <LazyImage
+          src={project.image}
+          alt={project.title}
+          width={600}
+          height={300}
+          className="w-full h-full transition-transform duration-700 group-hover:scale-105"
+          objectFit="cover"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80" />
         <div className="absolute bottom-5 left-6 text-white">

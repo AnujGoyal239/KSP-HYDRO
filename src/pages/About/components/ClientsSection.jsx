@@ -17,6 +17,7 @@ import {
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { LazyImage } from '@/components/lazy';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -167,10 +168,13 @@ const ClientsSection = () => {
                   key={`row1-${index}`}
                   className="bg-white rounded-xl p-5 shadow-sm w-[160px] h-[120px] md:w-[180px] md:h-[130px] flex items-center justify-center flex-shrink-0 mx-3"
                 >
-                  <img
+                  <LazyImage
                     src={logo.src}
                     alt={logo.alt}
-                    className="object-contain w-full h-full max-w-[140px] max-h-[90px]"
+                    width={140}
+                    height={90}
+                    className="w-full h-full max-w-[140px] max-h-[90px]"
+                    objectFit="contain"
                   />
                 </div>
               ))}
@@ -180,10 +184,13 @@ const ClientsSection = () => {
                   key={`row1-dup-${index}`}
                   className="bg-white rounded-xl p-5 shadow-sm w-[160px] h-[120px] md:w-[180px] md:h-[130px] flex items-center justify-center flex-shrink-0 mx-3"
                 >
-                  <img
+                  <LazyImage
                     src={logo.src}
                     alt={logo.alt}
-                    className="object-contain w-full h-full max-w-[140px] max-h-[90px]"
+                    width={140}
+                    height={90}
+                    className="w-full h-full max-w-[140px] max-h-[90px]"
+                    objectFit="contain"
                   />
                 </div>
               ))}
@@ -199,10 +206,13 @@ const ClientsSection = () => {
                   key={`row2-${index}`}
                   className="bg-white rounded-xl p-5 shadow-sm w-[160px] h-[120px] md:w-[180px] md:h-[130px] flex items-center justify-center flex-shrink-0 mx-3"
                 >
-                  <img
+                  <LazyImage
                     src={logo.src}
                     alt={logo.alt}
-                    className="object-contain w-full h-full max-w-[140px] max-h-[90px]"
+                    width={140}
+                    height={90}
+                    className="w-full h-full max-w-[140px] max-h-[90px]"
+                    objectFit="contain"
                   />
                 </div>
               ))}
@@ -212,10 +222,13 @@ const ClientsSection = () => {
                   key={`row2-dup-${index}`}
                   className="bg-white rounded-xl p-5 shadow-sm w-[160px] h-[120px] md:w-[180px] md:h-[130px] flex items-center justify-center flex-shrink-0 mx-3"
                 >
-                  <img
+                  <LazyImage
                     src={logo.src}
                     alt={logo.alt}
-                    className="object-contain w-full h-full max-w-[140px] max-h-[90px]"
+                    width={140}
+                    height={90}
+                    className="w-full h-full max-w-[140px] max-h-[90px]"
+                    objectFit="contain"
                   />
                 </div>
               ))}

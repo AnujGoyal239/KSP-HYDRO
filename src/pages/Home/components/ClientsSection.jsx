@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import useEmblaCarousel from 'embla-carousel-react';
+import { LazyImage } from '@/components/lazy';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -266,11 +267,13 @@ const ClientsSection = () => {
                   key={`row1-${index}`}
                   className="bg-white rounded-xl p-5 shadow-sm w-[160px] h-[120px] md:w-[180px] md:h-[130px] flex items-center justify-center flex-shrink-0 mx-3"
                 >
-                  <img
+                  <LazyImage
                     src={logo.src}
                     alt={logo.alt}
-                    loading="lazy"
-                    className="object-contain w-full h-full max-w-[140px] max-h-[90px]"
+                    width={140}
+                    height={90}
+                    className="w-full h-full max-w-[140px] max-h-[90px]"
+                    objectFit="contain"
                   />
                 </div>
               ))}
@@ -280,11 +283,13 @@ const ClientsSection = () => {
                   key={`row1-dup-${index}`}
                   className="bg-white rounded-xl p-5 shadow-sm w-[160px] h-[120px] md:w-[180px] md:h-[130px] flex items-center justify-center flex-shrink-0 mx-3"
                 >
-                  <img
+                  <LazyImage
                     src={logo.src}
                     alt={logo.alt}
-                    loading="lazy"
-                    className="object-contain w-full h-full max-w-[140px] max-h-[90px]"
+                    width={140}
+                    height={90}
+                    className="w-full h-full max-w-[140px] max-h-[90px]"
+                    objectFit="contain"
                   />
                 </div>
               ))}
@@ -300,11 +305,13 @@ const ClientsSection = () => {
                   key={`row2-${index}`}
                   className="bg-white rounded-xl p-5 shadow-sm w-[160px] h-[120px] md:w-[180px] md:h-[130px] flex items-center justify-center flex-shrink-0 mx-3"
                 >
-                  <img
+                  <LazyImage
                     src={logo.src}
                     alt={logo.alt}
-                    loading="lazy"
-                    className="object-contain w-full h-full max-w-[140px] max-h-[90px]"
+                    width={140}
+                    height={90}
+                    className="w-full h-full max-w-[140px] max-h-[90px]"
+                    objectFit="contain"
                   />
                 </div>
               ))}
@@ -314,11 +321,13 @@ const ClientsSection = () => {
                   key={`row2-dup-${index}`}
                   className="bg-white rounded-xl p-5 shadow-sm w-[160px] h-[120px] md:w-[180px] md:h-[130px] flex items-center justify-center flex-shrink-0 mx-3"
                 >
-                  <img
+                  <LazyImage
                     src={logo.src}
                     alt={logo.alt}
-                    loading="lazy"
-                    className="object-contain w-full h-full max-w-[140px] max-h-[90px]"
+                    width={140}
+                    height={90}
+                    className="w-full h-full max-w-[140px] max-h-[90px]"
+                    objectFit="contain"
                   />
                 </div>
               ))}
@@ -340,11 +349,12 @@ const ClientsSection = () => {
                   index === selectedIndex ? 'scale-100 opacity-100 z-10' : 'scale-[0.85] opacity-30 z-0'
                 }`}
               >
-                <div className="h-full px-8 py-10 md:px-16 md:py-14 bg-white shadow-[0_15px_50px_rgba(0,0,0,0.08)] rounded-lg border border-gray-100 flex gap-4 md:gap-8">
-                  {/* Quote Icon Column */}
-                  <div className="flex-shrink-0 pt-1">
+                {/* Mobile: Centered layout, Desktop: Side-by-side layout */}
+                <div className="h-full px-6 py-8 md:px-16 md:py-14 bg-white shadow-[0_8px_30px_rgba(0,0,0,0.08)] md:shadow-[0_15px_50px_rgba(0,0,0,0.08)] rounded-2xl md:rounded-lg border border-gray-100 flex flex-col md:flex-row gap-4 md:gap-8 text-center md:text-left">
+                  {/* Quote Icon - Centered on mobile, left-aligned on desktop */}
+                  <div className="flex-shrink-0 pt-0 md:pt-1 mx-auto md:mx-0">
                     <svg
-                      className="w-10 h-10 md:w-14 md:h-14 text-[#7FA7F8]"
+                      className="w-12 h-12 md:w-14 md:h-14 text-[#7FA7F8]"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -354,15 +364,15 @@ const ClientsSection = () => {
 
                   {/* Text and Author Column */}
                   <div className="flex flex-col flex-1">
-                    <p className="text-base md:text-xl italic leading-relaxed text-[#4B5563] font-medium mb-8 flex-1">
+                    <p className="text-[15px] leading-[1.7] md:text-xl italic md:leading-relaxed text-[#4B5563] font-medium mb-6 md:mb-8 flex-1">
                       {testimonial.content}
                     </p>
                     
                     <div className="mt-auto">
-                      <p className="text-sm md:text-base font-bold text-gray-900 mb-0.5">
+                      <p className="text-base md:text-base font-bold text-gray-900 mb-1 md:mb-0.5">
                         {testimonial.author}
                       </p>
-                      <p className="text-xs md:text-sm text-gray-500">
+                      <p className="text-sm md:text-sm text-gray-500">
                         {testimonial.position}
                       </p>
                     </div>

@@ -1,17 +1,20 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import useScrollReveal from '@/hooks/useScrollReveal';
+import { LazySection, SectionSkeleton } from '@/components/lazy';
 import {
   Hero,
-  AboutSection,
-  SectorsSection,
-  ProductsSection,
-  ServicesSection,
-  WhyChooseUs,
-  ClientsSection,
-  ProjectsSection,
-  ContactCTA,
   StatsSection
 } from './components';
+
+// Lazy load heavy sections
+const AboutSection = lazy(() => import('./components/AboutSection'));
+const SectorsSection = lazy(() => import('./components/SectorsSection'));
+const ProductsSection = lazy(() => import('./components/ProductsSection'));
+const ServicesSection = lazy(() => import('./components/ServicesSection'));
+const WhyChooseUs = lazy(() => import('./components/WhyChooseUs'));
+const ClientsSection = lazy(() => import('./components/ClientsSection'));
+const ProjectsSection = lazy(() => import('./components/ProjectsSection'));
+const ContactCTA = lazy(() => import('@/components/common/ContactCTA'));
 
 const SectionWrapper = ({ children, className = "", delay = 0 }) => {
   const ref = useScrollReveal({ delay });
@@ -42,31 +45,61 @@ const Home = () => {
           </svg>
         </div>
         <div className="relative z-10">
-          <SectionWrapper>
-            <AboutSection />
-          </SectionWrapper>
-          <SectionWrapper>
-            <SectorsSection />
-          </SectionWrapper>
+          <LazySection minHeight={400} fallback={<SectionSkeleton />}>
+            <Suspense fallback={<SectionSkeleton />}>
+              <SectionWrapper>
+                <AboutSection />
+              </SectionWrapper>
+            </Suspense>
+          </LazySection>
+          <LazySection minHeight={400} fallback={<SectionSkeleton />}>
+            <Suspense fallback={<SectionSkeleton />}>
+              <SectionWrapper>
+                <SectorsSection />
+              </SectionWrapper>
+            </Suspense>
+          </LazySection>
         </div>
       </div>
 
       <div className="relative">
         <div className="relative z-10">
-          <SectionWrapper>
-            <ProductsSection />
-          </SectionWrapper>
-          <SectionWrapper>
-            <ProjectsSection />
-          </SectionWrapper>
-          {/* <SectionWrapper> */}
-          <ServicesSection />
-          {/* </SectionWrapper> */}
-          <WhyChooseUs />
+          <LazySection minHeight={600} fallback={<SectionSkeleton height="600px" />}>
+            <Suspense fallback={<SectionSkeleton height="600px" />}>
+              <SectionWrapper>
+                <ProductsSection />
+              </SectionWrapper>
+            </Suspense>
+          </LazySection>
+          <LazySection minHeight={500} fallback={<SectionSkeleton height="500px" />}>
+            <Suspense fallback={<SectionSkeleton height="500px" />}>
+              <SectionWrapper>
+                <ProjectsSection />
+              </SectionWrapper>
+            </Suspense>
+          </LazySection>
+          <LazySection minHeight={400} fallback={<SectionSkeleton />}>
+            <Suspense fallback={<SectionSkeleton />}>
+              <ServicesSection />
+            </Suspense>
+          </LazySection>
+          <LazySection minHeight={400} fallback={<SectionSkeleton />}>
+            <Suspense fallback={<SectionSkeleton />}>
+              <WhyChooseUs />
+            </Suspense>
+          </LazySection>
         </div>
       </div>
-      <ClientsSection />
-      <ContactCTA />
+      <LazySection minHeight={500} fallback={<SectionSkeleton height="500px" />}>
+        <Suspense fallback={<SectionSkeleton height="500px" />}>
+          <ClientsSection />
+        </Suspense>
+      </LazySection>
+      <LazySection minHeight={300} fallback={<SectionSkeleton height="300px" />}>
+        <Suspense fallback={<SectionSkeleton height="300px" />}>
+          <ContactCTA />
+        </Suspense>
+      </LazySection>
     </div>
   );
 };

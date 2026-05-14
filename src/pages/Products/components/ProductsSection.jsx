@@ -17,6 +17,7 @@ import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
 import ProductsData from '@/data/ProductsData';
+import { LazyVideo, LazyImage } from '@/components/lazy';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -263,22 +264,22 @@ const ProductSection = ({ product }) => {
         <div className="media-showcase-card relative w-full mb-12 rounded-xl overflow-hidden shadow-2xl opacity-0 group/video cursor-pointer">
           <div className="aspect-[21/9] w-full relative">
             {isVideo ? (
-              <video
-                className="w-full h-full object-cover"
+              <LazyVideo
+                src={product.image}
                 autoPlay
                 muted
                 loop
                 playsInline
-                key={product.image}
-              >
-                <source src={product.image} type="video/mp4" />
-                Your browser does not support the video tag.
-              </video>
+                className="w-full h-full"
+              />
             ) : (
-              <img
+              <LazyImage
                 src={product.image}
                 alt={product.title}
-                className="w-full h-full object-cover"
+                width={1920}
+                height={820}
+                className="w-full h-full"
+                objectFit="cover"
               />
             )}
           </div>

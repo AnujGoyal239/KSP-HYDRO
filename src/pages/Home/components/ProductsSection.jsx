@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { LazyVideo, LazyImage } from '@/components/lazy';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -203,24 +204,22 @@ const ProductsSection = () => {
                   style={{ height: '200px' }}
                 >
                   {product.image?.toString().toLowerCase().includes('.mp4') ? (
-                    <video
-                      key={product.image}
-                      className="product-image object-cover w-full h-full transition-none"
+                    <LazyVideo
+                      src={product.image}
                       autoPlay
                       muted
                       loop
                       playsInline
-                    >
-                      <source src={product.image} type="video/mp4" />
-                    </video>
+                      className="product-image w-full h-full transition-none"
+                    />
                   ) : (
-                    <img
+                    <LazyImage
                       src={product.image}
                       alt={product.title}
-                      loading="lazy"
-                      width="400"
-                      height="200"
-                      className="product-image object-cover w-full h-full transition-none"
+                      width={400}
+                      height={200}
+                      className="product-image w-full h-full transition-none"
+                      objectFit="cover"
                     />
                   )}
 
