@@ -4,6 +4,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { Equipement1, Equipement2, Equipement3, Equipement4, Equipement5, Equipement6, Equipement7 } from '@/assets';
+import { LazyVideo, LazyImage } from '@/components/lazy';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -157,22 +158,22 @@ const EquipmentItem = ({ equip }) => {
       <div className="equip-card lg:flex-[0_0_42%] relative w-full">
         <div className="rounded-xl overflow-hidden shadow-lg bg-slate-50 relative">
           {isVideo ? (
-            <video 
-              className="w-full h-full object-cover aspect-video"
-              muted
+            <LazyVideo
+              src={equip.image}
               autoPlay
+              muted
               loop
               playsInline
-              key={equip.image}
-            >
-              <source src={equip.image} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
+              className="w-full h-full aspect-video"
+            />
           ) : (
-            <img 
-              src={equip.image} 
-              alt={equip.title} 
-              className="w-full h-full object-cover aspect-video" 
+            <LazyImage
+              src={equip.image}
+              alt={equip.title}
+              width={800}
+              height={450}
+              className="w-full h-full aspect-video"
+              objectFit="cover"
             />
           )}
           <div className="absolute top-4 right-4 z-10">

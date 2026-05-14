@@ -9,6 +9,7 @@ import {
 import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { LazyImage } from '@/components/lazy';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -125,10 +126,13 @@ const PartnersSection = () => {
               key={index}
               className="partner-logo bg-white rounded-xl p-5 shadow-sm w-[140px] h-[110px] md:w-[160px] md:h-[120px] flex items-center justify-center border border-slate-100"
             >
-              <img
+              <LazyImage
                 src={partner.src}
                 alt={partner.alt}
-                className="object-contain w-full h-full max-w-[120px] max-h-[80px]"
+                width={120}
+                height={80}
+                className="w-full h-full max-w-[120px] max-h-[80px]"
+                objectFit="contain"
               />
             </div>
           ))}

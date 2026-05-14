@@ -79,19 +79,21 @@ const TestimonialsSection = () => {
 
         {/* Testimonial Carousel */}
         <div className="testimonial-carousel-container relative mt-10" ref={emblaRef}>
-          <div className="">
+          <div className="flex">
             {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.id}
-                className={`flex-[0_0_90%] md:flex lg:flex-[0_0_70%] px-3 md:px-6 transition-all duration-700 ease-in-out ${index === selectedIndex ? 'scale-100 opacity-100 z-10' : 'scale-[0.85] opacity-30 z-0'
-                  }`}
+                className={`flex-[0_0_90%] md:flex-[0_0_75%] lg:flex-[0_0_70%] px-3 md:px-6 transition-all duration-700 ease-in-out ${
+                  index === selectedIndex ? 'scale-100 opacity-100 z-10' : 'scale-[0.85] opacity-30 z-0'
+                }`}
               >
-                <div className="h-full px-8 py-10 md:px-16 md:py-14 bg-white shadow-[0_15px_50px_rgba(0,0,0,0.08)] rounded-lg border border-gray-100 flex flex-col md:flex-row gap-4 md:gap-8">
+                {/* Mobile: Centered layout, Desktop: Side-by-side layout */}
+                <div className="h-full px-6 py-8 md:px-16 md:py-14 bg-white shadow-[0_8px_30px_rgba(0,0,0,0.08)] md:shadow-[0_15px_50px_rgba(0,0,0,0.08)] rounded-2xl md:rounded-lg border border-gray-100 flex flex-col md:flex-row gap-4 md:gap-8 text-center md:text-left">
 
-                  {/* Quote Icon */}
-                  <div className="flex-shrink-0 self-start">
+                  {/* Quote Icon - Centered on mobile, left-aligned on desktop */}
+                  <div className="flex-shrink-0 pt-0 md:pt-1 mx-auto md:mx-0">
                     <svg
-                      className="w-10 h-10 md:w-14 md:h-14 text-[#7FA7F8]"
+                      className="w-12 h-12 md:w-14 md:h-14 text-[#7FA7F8]"
                       fill="currentColor"
                       viewBox="0 0 24 24"
                     >
@@ -99,17 +101,17 @@ const TestimonialsSection = () => {
                     </svg>
                   </div>
 
-                  {/* Text */}
+                  {/* Text and Author Column */}
                   <div className="flex flex-col flex-1">
-                    <p className="text-base md:text-xl italic leading-relaxed text-[#4B5563] font-medium mb-8 flex-1">
+                    <p className="text-[15px] leading-[1.7] md:text-xl italic md:leading-relaxed text-[#4B5563] font-medium mb-6 md:mb-8 flex-1">
                       {testimonial.content}
                     </p>
 
                     <div className="mt-auto">
-                      <p className="text-sm md:text-base font-bold text-gray-900 mb-0.5">
+                      <p className="text-base md:text-base font-bold text-gray-900 mb-1 md:mb-0.5">
                         {testimonial.author}
                       </p>
-                      <p className="text-xs md:text-sm text-gray-500">
+                      <p className="text-sm md:text-sm text-gray-500">
                         {testimonial.position}
                       </p>
                     </div>

@@ -3,6 +3,7 @@ import gsap from 'gsap';
 import { useGSAP } from '@gsap/react';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { OfficeImg1, OfficeImg2, OfficeImg3, OfficeImg4 } from '@/assets';
+import { LazyImage } from '@/components/lazy';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -88,11 +89,13 @@ const OurOfficeSection = () => {
             <div key={office.id} className="office-card group overflow-hidden bg-white rounded-lg shadow-[0_4px_20px_rgba(0,0,0,0.05)] border border-gray-100 transition-transform duration-300 hover:-translate-y-1 hover:shadow-[0_8px_30px_rgba(0,0,0,0.1)]">
               {/* Image Container */}
               <div className="relative aspect-[4/3] md:aspect-[16/10] overflow-hidden">
-                <img
+                <LazyImage
                   src={office.image}
                   alt={office.title}
-                  loading="lazy"
-                  className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  width={800}
+                  height={500}
+                  className="w-full h-full transition-transform duration-500 group-hover:scale-105"
+                  objectFit="cover"
                 />
               </div>
               
